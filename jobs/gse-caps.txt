@@ -1,0 +1,77 @@
+================================================================================
+🚀 GSE Stock Data Scraper Service Started
+================================================================================
+🌍 Timezone: Africa/Accra
+🕒 Current time: 3/9/2026, 09:45:30 AM
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics
+📊 Total scrapers loaded: 37
+⚡ Concurrent limit: 3
+
+⏰ Scheduled runs (Monday-Friday only):
+  - 10:10 AM (Mid-morning update)
+  - 12:10 PM (Mid-day update)
+  - 3:10 PM (After market close)
+================================================================================
+
+[3/9/2026, 10:10:00 AM] ⏰ Scheduled: 10:10 AM run started
+
+================================================================================
+🚀 GSE Stock Data Scraper Run #1
+================================================================================
+🕒 Start time: 3/9/2026, 10:10:00 AM
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics/:symbol
+⚡ Concurrent limit: 3 stocks
+📊 Total scrapers: 37
+================================================================================
+
+📦 Batch 1/13 (3 stocks)
+[3/9/2026, 10:10:01 AM]   🔄 [1/37] Running scrapeAADGhana...
+[3/9/2026, 10:10:02 AM]   🔄 [2/37] Running scrapeACCESSGhana...
+[3/9/2026, 10:10:03 AM]   🔄 [3/37] Running scrapeADBGhana...
+
+[3/9/2026, 10:10:05 AM]   ✓ Fetched data for AADS
+[3/9/2026, 10:10:05 AM]   ✓ Updated AADS in database
+[3/9/2026, 10:10:05 AM]      Year Change: 15.2% → 15.2%
+[3/9/2026, 10:10:05 AM]      52 Week Range: 0.35 - 0.48
+[3/9/2026, 10:10:05 AM]      Market Cap: GHS45.2M → 45200000
+
+[3/9/2026, 10:10:06 AM]   ✓ Fetched data for ACCESS
+[3/9/2026, 10:10:06 AM]   ✓ Updated ACCESS in database
+[3/9/2026, 10:10:06 AM]      Year Change: -2.5% → -2.5
+[3/9/2026, 10:10:06 AM]      52 Week Range: 2.15 - 2.45
+[3/9/2026, 10:10:06 AM]      Market Cap: GHS156.8M → 156800000
+
+[3/9/2026, 10:10:07 AM]   ✓ Fetched data for ADB
+[3/9/2026, 10:10:07 AM]   ✓ Updated ADB in database
+[3/9/2026, 10:10:07 AM]      Year Change: 8.7% → 8.7
+[3/9/2026, 10:10:07 AM]      52 Week Range: 4.82 - 5.20
+[3/9/2026, 10:10:07 AM]      Market Cap: GHS892.3M → 892300000
+
+[3/9/2026, 10:10:07 AM] ⏱️  Waiting 3 seconds before next batch...
+
+📦 Batch 2/13 (3 stocks)
+[3/9/2026, 10:10:10 AM]   🔄 [4/37] Running scrapeAGAGhana...
+[3/9/2026, 10:10:11 AM]   🔄 [5/37] Running scrapeALLGhana...
+[3/9/2026, 10:10:12 AM]   🔄 [6/37] Running scrapeASGGhana...
+
+[3/9/2026, 10:10:14 AM]   ✓ Fetched data for AGA
+[3/9/2026, 10:10:14 AM]   ✓ Updated AGA in database
+[3/9/2026, 10:10:14 AM]      Year Change: 23.4% → 23.4
+[3/9/2026, 10:10:14 AM]      52 Week Range: 32.50 - 41.20
+[3/9/2026, 10:10:14 AM]      Market Cap: GHS1.2B → 1200000000
+
+... (all batches complete) ...
+
+================================================================================
+📊 RUN SUMMARY - Run #1
+================================================================================
+🕒 Started: 3/9/2026, 10:10:00 AM
+🕒 Ended:   3/9/2026, 10:12:30 AM
+📊 Total stocks: 37
+✅ Successful: 35 (94.6%)
+❌ Failed: 2
+================================================================================
+💾 Run details saved to: logs/gse-stocks-run-2026-03-09T10-12-30-456Z.json
+================================================================================
+
+[3/9/2026, 10:12:31 AM] Waiting for next scheduled run at 12:10 PM...

@@ -1,0 +1,279 @@
+Here's a complete simulation of what you'll see in your terminal when you run the scraper service:
+
+## **Initial Startup**
+```
+======================================================================
+🚀 GSE Live Data Scraper Service Started
+======================================================================
+🌍 Timezone: Africa/Accra
+🕒 Current time: 3/9/2026, 09:30:45 AM
+📡 External API: https://dev.kwayisi.org/apis/gse/live
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics
+📋 Symbols file: /Users/developer/project/seed/gse.json
+⚡ Concurrent limit: 5
+
+⏰ Scheduled runs (Monday-Friday only):
+  - 10:05 AM
+  - 11:05 AM
+  - 12:05 PM
+  - 1:05 PM
+  - 2:05 PM
+  - 3:05 PM
+======================================================================
+
+[3/9/2026, 09:45:32 AM] Waiting for next scheduled run at 10:05 AM...
+```
+
+## **First Scheduled Run - 10:05 AM**
+```
+[3/9/2026, 10:05:00 AM] ⏰ Scheduled: 10:05 AM run started
+
+======================================================================
+🚀 GSE Live Data Scraper Run #1
+======================================================================
+🕒 Start time: 3/9/2026, 10:05:00 AM
+📡 External API: https://dev.kwayisi.org/apis/gse/live/:symbol
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics/:symbol
+⚡ Concurrent limit: 5 symbols
+======================================================================
+📊 Loaded 37 symbols from file
+
+📦 Batch 1/8 (5 symbols)
+[3/9/2026, 10:05:01 AM]   ✓ Fetched GGBL: price=15.00, change=0.00, volume=0
+[3/9/2026, 10:05:01 AM]   ✓ Updated GGBL in database
+[3/9/2026, 10:05:01 AM]   ✓ Fetched GLD: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:01 AM]   ✓ Updated GLD in database
+[3/9/2026, 10:05:02 AM]   ✓ Fetched GOIL: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:02 AM]   ✓ Updated GOIL in database
+[3/9/2026, 10:05:02 AM]   ✓ Fetched HORDS: price=0.10, change=0.00, volume=0
+[3/9/2026, 10:05:02 AM]   ✓ Updated HORDS in database
+[3/9/2026, 10:05:02 AM]   ✓ Fetched IIL: price=0.05, change=0.00, volume=0
+[3/9/2026, 10:05:02 AM]   ✓ Updated IIL in database
+[3/9/2026, 10:05:02 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 2/8 (5 symbols)
+[3/9/2026, 10:05:04 AM]   ✓ Fetched MAC: price=5.20, change=0.00, volume=0
+[3/9/2026, 10:05:04 AM]   ✓ Updated MAC in database
+[3/9/2026, 10:05:04 AM]   ✗ Failed for MMH: External API error: Request failed with status code 404
+[3/9/2026, 10:05:05 AM]   ✓ Fetched MTNGH: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:05 AM]   ✓ Updated MTNGH in database
+[3/9/2026, 10:05:05 AM]   ✓ Fetched RBGH: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:05 AM]   ✓ Updated RBGH in database
+[3/9/2026, 10:05:05 AM]   ✓ Fetched SAMBA: price=0.55, change=0.00, volume=0
+[3/9/2026, 10:05:05 AM]   ✓ Updated SAMBA in database
+[3/9/2026, 10:05:05 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 3/8 (5 symbols)
+[3/9/2026, 10:05:07 AM]   ✗ Failed for SCB: External API error: Request failed with status code 404
+[3/9/2026, 10:05:07 AM]   ✓ Fetched SCBPREF: price=0.90, change=0.00, volume=0
+[3/9/2026, 10:05:07 AM]   ✓ Updated SCBPREF in database
+[3/9/2026, 10:05:07 AM]   ✗ Failed for SIC: External API error: Request failed with status code 404
+[3/9/2026, 10:05:08 AM]   ✗ Failed for SOGEGH: External API error: Request failed with status code 404
+[3/9/2026, 10:05:08 AM]   ✓ Fetched TBL: price=1.20, change=0.00, volume=0
+[3/9/2026, 10:05:08 AM]   ✓ Updated TBL in database
+[3/9/2026, 10:05:08 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 4/8 (5 symbols)
+[3/9/2026, 10:05:10 AM]   ✓ Fetched TLW: price=11.92, change=0.00, volume=0
+[3/9/2026, 10:05:10 AM]   ✓ Updated TLW in database
+[3/9/2026, 10:05:10 AM]   ✓ Fetched TOTAL: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:10 AM]   ✓ Updated TOTAL in database
+[3/9/2026, 10:05:10 AM]   ✓ Fetched UNIL: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:10 AM]   ✓ Updated UNIL in database
+[3/9/2026, 10:05:10 AM]   ✗ Failed for AADS: External API error: Request failed with status code 404
+[3/9/2026, 10:05:10 AM]   ✗ Failed for ACCESS: External API error: Request failed with status code 404
+[3/9/2026, 10:05:10 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 5/8 (5 symbols)
+[3/9/2026, 10:05:12 AM]   ✓ Fetched ADB: price=5.06, change=0.00, volume=0
+[3/9/2026, 10:05:12 AM]   ✓ Updated ADB in database
+[3/9/2026, 10:05:12 AM]   ✓ Fetched AGA: price=37.00, change=0.00, volume=0
+[3/9/2026, 10:05:12 AM]   ✓ Updated AGA in database
+[3/9/2026, 10:05:12 AM]   ✓ Fetched ALLGH: price=6.52, change=0.00, volume=0
+[3/9/2026, 10:05:12 AM]   ✓ Updated ALLGH in database
+[3/9/2026, 10:05:13 AM]   ✓ Fetched ASG: price=8.89, change=0.00, volume=0
+[3/9/2026, 10:05:13 AM]   ✓ Updated ASG in database
+[3/9/2026, 10:05:13 AM]   ✓ Fetched BOPP: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:13 AM]   ✓ Updated BOPP in database
+[3/9/2026, 10:05:13 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 6/8 (5 symbols)
+[3/9/2026, 10:05:15 AM]   ✓ Fetched CAL: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:15 AM]   ✓ Updated CAL in database
+[3/9/2026, 10:05:15 AM]   ✓ Fetched CALPREF: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:15 AM]   ✓ Updated CALPREF in database
+[3/9/2026, 10:05:15 AM]   ✓ Fetched CLYD: price=0.74, change=0.00, volume=0
+[3/9/2026, 10:05:15 AM]   ✓ Updated CLYD in database
+[3/9/2026, 10:05:16 AM]   ✓ Fetched CMLT: price=0.14, change=0.00, volume=0
+[3/9/2026, 10:05:16 AM]   ✓ Updated CMLT in database
+[3/9/2026, 10:05:16 AM]   ✓ Fetched CPC: price=0.07, change=0.00, volume=0
+[3/9/2026, 10:05:16 AM]   ✓ Updated CPC in database
+[3/9/2026, 10:05:16 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 7/8 (5 symbols)
+[3/9/2026, 10:05:18 AM]   ✓ Fetched DASPHARMA: price=0.38, change=0.00, volume=0
+[3/9/2026, 10:05:18 AM]   ✓ Updated DASPHARMA in database
+[3/9/2026, 10:05:18 AM]   ✓ Fetched DIGICUT: price=0.09, change=0.00, volume=0
+[3/9/2026, 10:05:18 AM]   ✓ Updated DIGICUT in database
+[3/9/2026, 10:05:18 AM]   ✓ Fetched EGH: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:18 AM]   ✓ Updated EGH in database
+[3/9/2026, 10:05:18 AM]   ✓ Fetched EGL: price=9.00, change=0.00, volume=0
+[3/9/2026, 10:05:18 AM]   ✓ Updated EGL in database
+[3/9/2026, 10:05:19 AM]   ✓ Fetched ETI: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:19 AM]   ✓ Updated ETI in database
+[3/9/2026, 10:05:19 AM] ⏱️  Waiting 2 seconds before next batch...
+
+📦 Batch 8/8 (2 symbols)
+[3/9/2026, 10:05:21 AM]   ✓ Fetched FAB: price=7.84, change=0.00, volume=0
+[3/9/2026, 10:05:21 AM]   ✓ Updated FAB in database
+[3/9/2026, 10:05:21 AM]   ✓ Fetched FML: price=0.00, change=0.00, volume=0
+[3/9/2026, 10:05:21 AM]   ✓ Updated FML in database
+
+======================================================================
+📊 RUN SUMMARY - Run #1
+======================================================================
+🕒 Started: 3/9/2026, 10:05:00 AM
+🕒 Ended:   3/9/2026, 10:05:22 AM
+📊 Total symbols: 37
+✅ Successful: 31 (83.8%)
+❌ Failed: 6
+======================================================================
+💾 Run details saved to: logs/gse-run-2026-03-09T10-05-22-456Z.json
+======================================================================
+
+[3/9/2026, 10:05:23 AM] Waiting for next scheduled run at 11:05 AM...
+```
+
+## **Second Scheduled Run - 11:05 AM**
+```
+[3/9/2026, 11:05:00 AM] ⏰ Scheduled: 11:05 AM run started
+
+======================================================================
+🚀 GSE Live Data Scraper Run #2
+======================================================================
+🕒 Start time: 3/9/2026, 11:05:00 AM
+📡 External API: https://dev.kwayisi.org/apis/gse/live/:symbol
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics/:symbol
+⚡ Concurrent limit: 5 symbols
+======================================================================
+📊 Loaded 37 symbols from file
+
+📦 Batch 1/8 (5 symbols)
+[3/9/2026, 11:05:01 AM]   ✓ Fetched GGBL: price=15.10, change=+0.10, volume=5000
+[3/9/2026, 11:05:01 AM]   ✓ Updated GGBL in database
+[3/9/2026, 11:05:01 AM]   ✓ Fetched GLD: price=0.00, change=0.00, volume=0
+[3/9/2026, 11:05:01 AM]   ✓ Updated GLD in database
+... etc ...
+```
+
+## **End of Trading Day - 3:05 PM**
+```
+[3/9/2026, 3:05:00 PM] ⏰ Scheduled: 3:05 PM run started
+
+======================================================================
+🚀 GSE Live Data Scraper Run #6
+======================================================================
+🕒 Start time: 3/9/2026, 3:05:00 PM
+... (processing) ...
+
+======================================================================
+📊 RUN SUMMARY - Run #6
+======================================================================
+🕒 Started: 3/9/2026, 3:05:00 PM
+🕒 Ended:   3/9/2026, 3:05:22 PM
+📊 Total symbols: 37
+✅ Successful: 33 (89.2%)
+❌ Failed: 4
+======================================================================
+💾 Run details saved to: logs/gse-run-2026-03-09T15-05-22-789Z.json
+======================================================================
+
+[3/9/2026, 3:05:23 PM] 📊 Daily Summary - Monday, March 9, 2026
+[3/9/2026, 3:05:23 PM] ──────────────────────────────────────
+[3/9/2026, 3:05:23 PM] Total runs today: 6
+[3/9/2026, 3:05:23 PM] Total successful updates: 192
+[3/9/2026, 3:05:23 PM] Total failed updates: 30
+[3/9/2026, 3:05:23 PM] Success rate: 86.5%
+[3/9/2026, 3:05:23 PM] ──────────────────────────────────────
+[3/9/2026, 3:05:24 PM] Waiting for next scheduled run at 10:05 AM tomorrow...
+```
+
+## **Weekend - No Runs**
+```
+[3/10/2026, 10:05:00 AM] (Saturday - No run scheduled)
+[3/10/2026, 11:05:00 AM] (Saturday - No run scheduled)
+[3/10/2026, 3:05:00 PM] (Saturday - No run scheduled)
+
+[3/11/2026, 10:05:00 AM] (Sunday - No run scheduled)
+[3/11/2026, 11:05:00 AM] (Sunday - No run scheduled)
+[3/11/2026, 3:05:00 PM] (Sunday - No run scheduled)
+```
+
+## **Monday Morning - New Week**
+```
+[3/12/2026, 9:30:00 AM] 🌅 Good morning! Ready for trading week
+[3/12/2026, 10:05:00 AM] ⏰ Scheduled: 10:05 AM run started
+
+======================================================================
+🚀 GSE Live Data Scraper Run #7
+======================================================================
+🕒 Start time: 3/12/2026, 10:05:00 AM
+...
+```
+
+## **Error Scenario - API Down**
+```
+[3/13/2026, 10:05:00 AM] ⏰ Scheduled: 10:05 AM run started
+
+======================================================================
+🚀 GSE Live Data Scraper Run #12
+======================================================================
+🕒 Start time: 3/13/2026, 10:05:00 AM
+📡 External API: https://dev.kwayisi.org/apis/gse/live/:symbol
+🎯 Target API: http://localhost:6060/api/stocks/equity/statistics/:symbol
+⚡ Concurrent limit: 5 symbols
+======================================================================
+📊 Loaded 37 symbols from file
+
+📦 Batch 1/8 (5 symbols)
+[3/13/2026, 10:05:01 AM]   ✗ Failed for GGBL: External API error: connect ECONNREFUSED
+[3/13/2026, 10:05:01 AM]   ✗ Failed for GLD: External API error: connect ECONNREFUSED
+[3/13/2026, 10:05:01 AM]   ✗ Failed for GOIL: External API error: connect ECONNREFUSED
+[3/13/2026, 10:05:01 AM]   ✗ Failed for HORDS: External API error: connect ECONNREFUSED
+[3/13/2026, 10:05:01 AM]   ✗ Failed for IIL: External API error: connect ECONNREFUSED
+[3/13/2026, 10:05:01 AM] ⏱️  Waiting 2 seconds before next batch...
+
+... (all batches fail) ...
+
+======================================================================
+📊 RUN SUMMARY - Run #12
+======================================================================
+🕒 Started: 3/13/2026, 10:05:00 AM
+🕒 Ended:   3/13/2026, 10:05:30 AM
+📊 Total symbols: 37
+✅ Successful: 0 (0.0%)
+❌ Failed: 37
+======================================================================
+💾 Run details saved to: logs/gse-run-2026-03-13T10-05-30-123Z.json
+======================================================================
+
+[3/13/2026, 10:05:31 AM] ⚠️  External API appears to be down. Will retry at next scheduled run.
+[3/13/2026, 10:05:31 AM] Waiting for next scheduled run at 11:05 AM...
+```
+
+## **Graceful Shutdown**
+```
+^C
+👋 Shutting down GSE scraper service...
+[3/13/2026, 4:30:15 PM] Service stopped by user
+```
+
+The terminal shows:
+- ✅ **Real-time progress** of each batch
+- ✅ **Success/failure indicators** for each symbol
+- ✅ **Timestamps** in Ghana time
+- ✅ **Run summaries** with statistics
+- ✅ **Daily summary** at end of trading day
+- ✅ **Clear visibility** of when next run will occur
+- ✅ **Error handling** when APIs are down
+- ✅ **No weekend runs** (Saturday/Sunday)
