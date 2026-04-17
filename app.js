@@ -1,5 +1,4 @@
 require('express-async-errors');
-const { connectDB } = require('./db/index');
 const express = require('express');
 require('dotenv').config();
 const morgan = require('morgan');
@@ -20,8 +19,6 @@ app.use(
 );
 app.use(express.json());
 app.use(morgan('dev'));
-
-connectDB();
 
 app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
