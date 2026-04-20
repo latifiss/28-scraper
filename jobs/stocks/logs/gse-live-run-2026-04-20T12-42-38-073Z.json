@@ -1,0 +1,1263 @@
+{
+  "runId": 1776688320030,
+  "startTime": "4/20/2026, 12:32:00 PM",
+  "endTime": "4/20/2026, 12:42:38 PM",
+  "stats": {
+    "total": 38,
+    "successful": 36,
+    "failed": 2
+  },
+  "details": [
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:32:32 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:32:32 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "success",
+      "data": {
+        "name": "GOIL",
+        "price": 7.89,
+        "change": 0,
+        "volume": 537
+      },
+      "time": "4/20/2026, 12:33:05 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "success",
+      "data": {
+        "name": "HORDS",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:33:05 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "success",
+      "data": {
+        "name": "MAC",
+        "price": 5.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:33:38 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "success",
+      "data": {
+        "name": "IIL",
+        "price": 0.05,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:33:38 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "success",
+      "data": {
+        "name": "MTNGH",
+        "price": 6.5,
+        "change": 0.4,
+        "volume": 496833
+      },
+      "time": "4/20/2026, 12:34:10 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "success",
+      "data": {
+        "name": "MMH",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:34:10 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:34:30 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:34:30 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "success",
+      "data": {
+        "name": "SAMBA",
+        "price": 0.55,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:34:44 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "success",
+      "data": {
+        "name": "RBGH",
+        "price": 4.72,
+        "change": 0,
+        "volume": 1059
+      },
+      "time": "4/20/2026, 12:34:44 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "success",
+      "data": {
+        "name": "GOIL",
+        "price": 7.89,
+        "change": 0,
+        "volume": 537
+      },
+      "time": "4/20/2026, 12:35:04 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "success",
+      "data": {
+        "name": "HORDS",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:35:04 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "success",
+      "data": {
+        "name": "SCBPREF",
+        "price": 0.9,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:35:17 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "success",
+      "data": {
+        "name": "SCB",
+        "price": 71.38,
+        "change": 0,
+        "volume": 133
+      },
+      "time": "4/20/2026, 12:35:18 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "success",
+      "data": {
+        "name": "MAC",
+        "price": 5.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:35:39 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "success",
+      "data": {
+        "name": "IIL",
+        "price": 0.05,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:35:39 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "success",
+      "data": {
+        "name": "SIC",
+        "price": 4.55,
+        "change": 0.09,
+        "volume": 3409
+      },
+      "time": "4/20/2026, 12:35:52 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "success",
+      "data": {
+        "name": "SOGEGH",
+        "price": 6.21,
+        "change": 0.56,
+        "volume": 10480
+      },
+      "time": "4/20/2026, 12:35:52 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "success",
+      "data": {
+        "name": "MMH",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:36:13 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "success",
+      "data": {
+        "name": "MTNGH",
+        "price": 6.5,
+        "change": 0.4,
+        "volume": 496833
+      },
+      "time": "4/20/2026, 12:36:13 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "success",
+      "data": {
+        "name": "TLW",
+        "price": 11.92,
+        "change": 0,
+        "volume": 102
+      },
+      "time": "4/20/2026, 12:36:26 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "success",
+      "data": {
+        "name": "TBL",
+        "price": 1.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:36:27 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:36:31 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:36:32 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "success",
+      "data": {
+        "name": "RBGH",
+        "price": 4.72,
+        "change": 0,
+        "volume": 1059
+      },
+      "time": "4/20/2026, 12:36:47 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "success",
+      "data": {
+        "name": "SAMBA",
+        "price": 0.55,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:36:47 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "success",
+      "data": {
+        "name": "UNIL",
+        "price": 28.46,
+        "change": 0,
+        "volume": 749
+      },
+      "time": "4/20/2026, 12:37:00 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "success",
+      "data": {
+        "name": "TOTAL",
+        "price": 34.57,
+        "change": -3.71,
+        "volume": 12462
+      },
+      "time": "4/20/2026, 12:37:00 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "success",
+      "data": {
+        "name": "HORDS",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:37:04 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "success",
+      "data": {
+        "name": "GOIL",
+        "price": 7.89,
+        "change": 0,
+        "volume": 537
+      },
+      "time": "4/20/2026, 12:37:04 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/20/2026, 12:37:13 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "success",
+      "data": {
+        "name": "SCBPREF",
+        "price": 0.9,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:37:20 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "success",
+      "data": {
+        "name": "SCB",
+        "price": 71.38,
+        "change": 0,
+        "volume": 133
+      },
+      "time": "4/20/2026, 12:37:20 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "success",
+      "data": {
+        "name": "ACCESS",
+        "price": 30.65,
+        "change": 0,
+        "volume": 674
+      },
+      "time": "4/20/2026, 12:37:32 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "success",
+      "data": {
+        "name": "IIL",
+        "price": 0.05,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:37:36 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "success",
+      "data": {
+        "name": "MAC",
+        "price": 5.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:37:36 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "success",
+      "data": {
+        "name": "SIC",
+        "price": 4.55,
+        "change": 0.09,
+        "volume": 3409
+      },
+      "time": "4/20/2026, 12:37:53 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "success",
+      "data": {
+        "name": "SOGEGH",
+        "price": 6.21,
+        "change": 0.56,
+        "volume": 10480
+      },
+      "time": "4/20/2026, 12:37:53 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "success",
+      "data": {
+        "name": "AGA",
+        "price": 37,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:37:55 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "success",
+      "data": {
+        "name": "ADB",
+        "price": 5.05,
+        "change": -0.01,
+        "volume": 3424
+      },
+      "time": "4/20/2026, 12:38:05 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "success",
+      "data": {
+        "name": "MMH",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:38:09 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "success",
+      "data": {
+        "name": "MTNGH",
+        "price": 6.5,
+        "change": 0.4,
+        "volume": 496833
+      },
+      "time": "4/20/2026, 12:38:10 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "success",
+      "data": {
+        "name": "TLW",
+        "price": 11.92,
+        "change": 0,
+        "volume": 102
+      },
+      "time": "4/20/2026, 12:38:27 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "success",
+      "data": {
+        "name": "TBL",
+        "price": 1.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:38:27 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:38:30 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:38:31 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "success",
+      "data": {
+        "name": "ASG",
+        "price": 8.89,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:38:39 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "success",
+      "data": {
+        "name": "ALLGH",
+        "price": 7.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:38:39 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "success",
+      "data": {
+        "name": "SAMBA",
+        "price": 0.55,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:38:42 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "success",
+      "data": {
+        "name": "RBGH",
+        "price": 4.72,
+        "change": 0,
+        "volume": 1059
+      },
+      "time": "4/20/2026, 12:38:42 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "success",
+      "data": {
+        "name": "TOTAL",
+        "price": 34.57,
+        "change": -3.71,
+        "volume": 12462
+      },
+      "time": "4/20/2026, 12:39:01 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "success",
+      "data": {
+        "name": "UNIL",
+        "price": 28.46,
+        "change": 0,
+        "volume": 749
+      },
+      "time": "4/20/2026, 12:39:02 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "success",
+      "data": {
+        "name": "HORDS",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:04 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "success",
+      "data": {
+        "name": "GOIL",
+        "price": 7.89,
+        "change": 0,
+        "volume": 537
+      },
+      "time": "4/20/2026, 12:39:04 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "success",
+      "data": {
+        "name": "BOPP",
+        "price": 89.99,
+        "change": 0,
+        "volume": 1951
+      },
+      "time": "4/20/2026, 12:39:12 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "success",
+      "data": {
+        "name": "CAL",
+        "price": 0.86,
+        "change": 0,
+        "volume": 990013
+      },
+      "time": "4/20/2026, 12:39:12 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/20/2026, 12:39:15 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/20/2026, 12:39:15 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "success",
+      "data": {
+        "name": "SCBPREF",
+        "price": 0.9,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:16 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "success",
+      "data": {
+        "name": "SCB",
+        "price": 71.38,
+        "change": 0,
+        "volume": 133
+      },
+      "time": "4/20/2026, 12:39:16 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "success",
+      "data": {
+        "name": "ACCESS",
+        "price": 30.65,
+        "change": 0,
+        "volume": 674
+      },
+      "time": "4/20/2026, 12:39:34 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "success",
+      "data": {
+        "name": "IIL",
+        "price": 0.05,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:36 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "success",
+      "data": {
+        "name": "MAC",
+        "price": 5.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:37 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "success",
+      "data": {
+        "name": "CLYD",
+        "price": 1.44,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:45 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "success",
+      "data": {
+        "name": "SIC",
+        "price": 4.55,
+        "change": 0.09,
+        "volume": 3409
+      },
+      "time": "4/20/2026, 12:39:48 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "success",
+      "data": {
+        "name": "SOGEGH",
+        "price": 6.21,
+        "change": 0.56,
+        "volume": 10480
+      },
+      "time": "4/20/2026, 12:39:49 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "success",
+      "data": {
+        "name": "AGA",
+        "price": 37,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:39:58 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "success",
+      "data": {
+        "name": "ADB",
+        "price": 5.05,
+        "change": -0.01,
+        "volume": 3424
+      },
+      "time": "4/20/2026, 12:40:09 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "success",
+      "data": {
+        "name": "MMH",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:11 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "success",
+      "data": {
+        "name": "MTNGH",
+        "price": 6.5,
+        "change": 0.4,
+        "volume": 496833
+      },
+      "time": "4/20/2026, 12:40:11 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "success",
+      "data": {
+        "name": "CMLT",
+        "price": 0.14,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:19 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "success",
+      "data": {
+        "name": "CPC",
+        "price": 0.12,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:19 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "success",
+      "data": {
+        "name": "TLW",
+        "price": 11.92,
+        "change": 0,
+        "volume": 102
+      },
+      "time": "4/20/2026, 12:40:22 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "success",
+      "data": {
+        "name": "TBL",
+        "price": 1.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:23 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:40:31 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:40:32 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "success",
+      "data": {
+        "name": "ASG",
+        "price": 8.89,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:42 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "success",
+      "data": {
+        "name": "ALLGH",
+        "price": 7.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:42 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "success",
+      "data": {
+        "name": "RBGH",
+        "price": 4.72,
+        "change": 0,
+        "volume": 1059
+      },
+      "time": "4/20/2026, 12:40:44 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "success",
+      "data": {
+        "name": "SAMBA",
+        "price": 0.55,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:44 PM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "success",
+      "data": {
+        "name": "DIGICUT",
+        "price": 0.09,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:53 PM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "success",
+      "data": {
+        "name": "DASPHARMA",
+        "price": 0.41,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:40:53 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "success",
+      "data": {
+        "name": "UNIL",
+        "price": 28.46,
+        "change": 0,
+        "volume": 749
+      },
+      "time": "4/20/2026, 12:40:57 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "success",
+      "data": {
+        "name": "TOTAL",
+        "price": 34.57,
+        "change": -3.71,
+        "volume": 12462
+      },
+      "time": "4/20/2026, 12:40:57 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "success",
+      "data": {
+        "name": "HORDS",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:06 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "success",
+      "data": {
+        "name": "GOIL",
+        "price": 7.89,
+        "change": 0,
+        "volume": 537
+      },
+      "time": "4/20/2026, 12:41:06 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/20/2026, 12:41:11 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "success",
+      "data": {
+        "name": "CAL",
+        "price": 0.86,
+        "change": 0,
+        "volume": 990013
+      },
+      "time": "4/20/2026, 12:41:17 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "success",
+      "data": {
+        "name": "BOPP",
+        "price": 89.99,
+        "change": 0,
+        "volume": 1951
+      },
+      "time": "4/20/2026, 12:41:18 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "success",
+      "data": {
+        "name": "SCB",
+        "price": 71.38,
+        "change": 0,
+        "volume": 133
+      },
+      "time": "4/20/2026, 12:41:20 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "success",
+      "data": {
+        "name": "SCBPREF",
+        "price": 0.9,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:20 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/20/2026, 12:41:20 PM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "success",
+      "data": {
+        "name": "EGH",
+        "price": 48.9,
+        "change": 0,
+        "volume": 1892
+      },
+      "time": "4/20/2026, 12:41:28 PM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "success",
+      "data": {
+        "name": "EGL",
+        "price": 11.3,
+        "change": 0,
+        "volume": 9313
+      },
+      "time": "4/20/2026, 12:41:29 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "success",
+      "data": {
+        "name": "ACCESS",
+        "price": 30.65,
+        "change": 0,
+        "volume": 674
+      },
+      "time": "4/20/2026, 12:41:32 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "success",
+      "data": {
+        "name": "IIL",
+        "price": 0.05,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:41 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "success",
+      "data": {
+        "name": "MAC",
+        "price": 5.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:41 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "success",
+      "data": {
+        "name": "CLYD",
+        "price": 1.44,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:52 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "success",
+      "data": {
+        "name": "SIC",
+        "price": 4.55,
+        "change": 0.09,
+        "volume": 3409
+      },
+      "time": "4/20/2026, 12:41:54 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "success",
+      "data": {
+        "name": "SOGEGH",
+        "price": 6.21,
+        "change": 0.56,
+        "volume": 10480
+      },
+      "time": "4/20/2026, 12:41:54 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "success",
+      "data": {
+        "name": "AGA",
+        "price": 37,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:41:55 PM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "success",
+      "data": {
+        "name": "FAB",
+        "price": 7.97,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:03 PM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "success",
+      "data": {
+        "name": "ETI",
+        "price": 2.2,
+        "change": 0.1,
+        "volume": 105083
+      },
+      "time": "4/20/2026, 12:42:03 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "success",
+      "data": {
+        "name": "ADB",
+        "price": 5.05,
+        "change": -0.01,
+        "volume": 3424
+      },
+      "time": "4/20/2026, 12:42:06 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "success",
+      "data": {
+        "name": "MMH",
+        "price": 0.1,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:15 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "success",
+      "data": {
+        "name": "MTNGH",
+        "price": 6.5,
+        "change": 0.4,
+        "volume": 496833
+      },
+      "time": "4/20/2026, 12:42:15 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "success",
+      "data": {
+        "name": "CPC",
+        "price": 0.12,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:26 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "success",
+      "data": {
+        "name": "CMLT",
+        "price": 0.14,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:26 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "success",
+      "data": {
+        "name": "TLW",
+        "price": 11.92,
+        "change": 0,
+        "volume": 102
+      },
+      "time": "4/20/2026, 12:42:27 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "success",
+      "data": {
+        "name": "TBL",
+        "price": 1.2,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:28 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "success",
+      "data": {
+        "name": "GLD",
+        "price": 502.89,
+        "change": 0,
+        "volume": 7
+      },
+      "time": "4/20/2026, 12:42:30 PM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "success",
+      "data": {
+        "name": "GGBL",
+        "price": 15.3,
+        "change": 0,
+        "volume": 3646
+      },
+      "time": "4/20/2026, 12:42:32 PM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "success",
+      "data": {
+        "name": "GCB",
+        "price": 31.77,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:38 PM"
+    },
+    {
+      "symbol": "FML",
+      "status": "success",
+      "data": {
+        "name": "FML",
+        "price": 12.55,
+        "change": 0,
+        "volume": 0
+      },
+      "time": "4/20/2026, 12:42:38 PM"
+    }
+  ]
+}

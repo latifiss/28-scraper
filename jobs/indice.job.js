@@ -1,126 +1,238 @@
 const cron = require('node-cron');
-const mongoose = require('mongoose');
 const axios = require('axios');
-const Index = require('../models/indice.model');
 const indexSources = require('../scripts/indicesIndex');
-const NodeCache = require('node-cache');
 
-const indexCache = new NodeCache({ stdTTL: 300, checkperiod: 120 });
 const MAX_WAIT_MS = 10000;
-const MAX_RETRIES = 3;
-const BASE_RETRY_DELAY = 5000;
-const REQUEST_DELAY = 1000;
-const USER_AGENT = 'MarketsAPI/1.0';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:6060/api';
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const withRetry = async (
-  fn,
-  retries = MAX_RETRIES,
-  delayMs = BASE_RETRY_DELAY,
-) => {
-  try {
-    return await fn();
-  } catch (error) {
-    if (retries <= 0) throw error;
-    const retryAfter = error.response?.headers?.['retry-after']
-      ? parseInt(error.response.headers['retry-after']) * 1000
-      : delayMs;
-    await delay(retryAfter + Math.floor(Math.random() * 1000));
-    return withRetry(fn, retries - 1, delayMs * 2);
-  }
+// ==================== TIME UTILITIES ====================
+const getGhanaTime = () => {
+  const now = new Date();
+  return new Date(now.toLocaleString('en-US', { timeZone: 'Africa/Accra' }));
 };
 
-const withTimeout = (promise, timeoutMs, label) =>
-  Promise.race([
+const withTimeout = (promise, timeoutMs, label) => {
+  return Promise.race([
     promise,
     new Promise((_, reject) =>
       setTimeout(() => reject(new Error(`Timeout: ${label}`)), timeoutMs),
     ),
   ]);
-
-const cachedRequest = async (url, params = {}) => {
-  const cacheKey = `${url}:${JSON.stringify(params)}`;
-  const cached = indexCache.get(cacheKey);
-  if (cached) return cached;
-
-  await delay(REQUEST_DELAY);
-  const response = await withRetry(() =>
-    axios.get(url, {
-      params,
-      timeout: 5000,
-      headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-    }),
-  );
-
-  indexCache.set(cacheKey, response.data);
-  return response.data;
 };
 
-const processIndexUpdate = async (data) => {
-  const start = Date.now();
-  try {
-    const existing = await Index.findOne({ code: data.code }).lean();
+// ==================== API CALL FUNCTIONS ====================
 
-    if (!existing) {
-      await Index.create({
-        ...data,
-        price_history: [],
-        last_updated: new Date(),
+async function indexExists(code) {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/index/indices/${code}`, {
+      timeout: 10000,
+      headers: { 'Content-Type': 'application/json' },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 404) {
+      return null;
+    }
+    throw error;
+  }
+}
+
+async function createIndexViaAPI(indexData) {
+  const payload = {
+    code: indexData.code,
+    symbol: indexData.symbol,
+    name: indexData.name,
+    currentPrice: indexData.currentPrice,
+    value_change: indexData.value_change,
+    percentage_change: indexData.percentage_change,
+    monthly_change: indexData.monthly_change || 0,
+    yearly_change: indexData.yearly_change || 0,
+  };
+
+  const response = await axios.post(`${API_BASE_URL}/index/indices`, payload, {
+    timeout: 10000,
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  return response.data;
+}
+
+async function updateIndexPriceViaAPI(code, indexData) {
+  const payload = {
+    currentPrice: indexData.currentPrice,
+    value_change: indexData.value_change,
+    percentage_change: indexData.percentage_change,
+    monthly_change: indexData.monthly_change,
+    yearly_change: indexData.yearly_change,
+    date: new Date().toISOString(),
+  };
+
+  const response = await axios.post(
+    `${API_BASE_URL}/index/indices/${code}/price`,
+    payload,
+    {
+      timeout: 10000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+async function updateFullIndexViaAPI(code, indexData) {
+  const payload = {
+    symbol: indexData.symbol,
+    name: indexData.name,
+    currentPrice: indexData.currentPrice,
+    value_change: indexData.value_change,
+    percentage_change: indexData.percentage_change,
+    monthly_change: indexData.monthly_change,
+    yearly_change: indexData.yearly_change,
+    last_updated: new Date().toISOString(),
+  };
+
+  const response = await axios.put(
+    `${API_BASE_URL}/index/indices/${code}`,
+    payload,
+    {
+      timeout: 10000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+async function addHistoryEntryViaAPI(code, price, date = null) {
+  const payload = {
+    price: price,
+    date: date || new Date().toISOString(),
+  };
+
+  const response = await axios.post(
+    `${API_BASE_URL}/index/indices/${code}/history`,
+    payload,
+    {
+      timeout: 10000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+async function getIndexHistory(code) {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/index/indices/${code}/history`,
+      {
+        timeout: 10000,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 404) {
+      return { price_history: [] };
+    }
+    throw error;
+  }
+}
+
+// ==================== PROCESS INDEX UPDATE ====================
+
+const processIndexUpdate = async (scrapedData) => {
+  const start = Date.now();
+  const {
+    code,
+    symbol,
+    name,
+    currentPrice,
+    value_change,
+    percentage_change,
+    monthly_change,
+    yearly_change,
+  } = scrapedData;
+
+  try {
+    if (typeof currentPrice !== 'number' || isNaN(currentPrice)) {
+      throw new Error(`Invalid currentPrice: ${currentPrice}`);
+    }
+
+    const existingIndex = await indexExists(code);
+
+    if (!existingIndex) {
+      await createIndexViaAPI({
+        code,
+        symbol,
+        name,
+        currentPrice,
+        value_change,
+        percentage_change,
+        monthly_change,
+        yearly_change,
       });
+
+      console.log(`  ✅ Created ${code} with initial price ${currentPrice}`);
+
       return {
-        code: data.code,
+        code,
         action: 'created',
         duration: Date.now() - start,
       };
     }
 
-    await Index.updateOne(
-      { code: data.code },
-      {
-        $set: {
-          currentPrice: data.currentPrice,
-          value_change: data.value_change,
-          percentage_change: data.percentage_change,
-          monthly_change: data.monthly_change,
-          yearly_change: data.yearly_change,
-          last_updated: new Date(),
-        },
-        $push: {
-          price_history: {
-            $each: [{ date: new Date(), price: existing.currentPrice }],
-            $position: 0,
-            $slice: 1000,
-          },
-        },
-      },
-    );
+    const oldPrice = existingIndex.data.currentPrice;
+
+    await updateIndexPriceViaAPI(code, {
+      currentPrice,
+      value_change,
+      percentage_change,
+      monthly_change,
+      yearly_change,
+    });
+
+    if (oldPrice !== currentPrice) {
+      console.log(`  📝 Updated ${code}: ${oldPrice} → ${currentPrice}`);
+    } else {
+      console.log(
+        `  📝 Added history entry for ${code}: price unchanged at ${currentPrice}`,
+      );
+    }
 
     return {
-      code: data.code,
+      code,
       action: 'updated',
-      oldPrice: existing.currentPrice,
-      newPrice: data.currentPrice,
+      oldPrice: oldPrice,
+      newPrice: currentPrice,
       duration: Date.now() - start,
     };
   } catch (error) {
-    return { code: data.code || 'unknown', error: error.message };
+    console.error(`  ❌ Failed ${code}:`, error.message);
+    if (error.response?.data) {
+      console.error(`  📄 Response data:`, error.response.data);
+    }
+    return {
+      code,
+      error: error.response?.data?.message || error.message,
+      status: error.response?.status,
+    };
   }
 };
 
-const indexUpdateJob = cron.schedule(
-  '0 * * * *',
-  async () => {
-    if (mongoose.connection.readyState !== 1) {
-      return;
-    }
+// ==================== MAIN JOB FUNCTION ====================
 
-    const now = new Date();
-    const ghanaTime = new Date(
-      now.toLocaleString('en-US', { timeZone: 'Africa/Accra' }),
-    );
+const indexUpdateJob = cron.schedule(
+  '*/2 * * * *',
+  async () => {
+    const ghanaTime = getGhanaTime();
     const hour = ghanaTime.getHours();
     const day = ghanaTime.getDay();
+
+    console.log(
+      `\n[${ghanaTime.toISOString()}] 🔄 Starting index update job...`,
+    );
+    console.log(`  Day: ${day}, Hour: ${hour}`);
 
     try {
       const scrapers = Array.isArray(indexSources)
@@ -139,25 +251,74 @@ const indexUpdateJob = cron.schedule(
           ),
       );
 
-      let validData = scrapedData.filter((d) => d?.code && !d.error);
+      console.log(
+        `📊 Raw scraped data:`,
+        scrapedData.map((d) => ({
+          code: d?.code,
+          price: d?.currentPrice,
+          name: d?.name,
+          error: d?.error,
+        })),
+      );
+
+      let validData = scrapedData.filter(
+        (d) => d?.code && !d.error && d.currentPrice,
+      );
 
       validData = validData.filter((d) => {
         if (d.code === 'GGSECI') {
-          if (day === 0 || day === 6) return false;
-          if (hour < 10 || hour > 15) return false;
+          if (day === 0 || day === 6) {
+            console.log(`  ⏭️  Skipping ${d.code}: Weekend`);
+            return false;
+          }
+          if (hour < 10 || hour > 15) {
+            console.log(
+              `  ⏭️  Skipping ${d.code}: Outside trading hours (${hour}:00)`,
+            );
+            return false;
+          }
         }
         return true;
       });
 
-      await Promise.all(validData.map(processIndexUpdate));
-    } catch (error) {}
+      console.log(`📊 Processing ${validData.length} indices...`);
+
+      const results = await Promise.all(validData.map(processIndexUpdate));
+
+      const successful = results.filter((r) => !r.error).length;
+      const failed = results.filter((r) => r.error).length;
+
+      console.log(`[${ghanaTime.toISOString()}] ✅ Job completed:`);
+      console.log(`  ✅ Successful: ${successful}`);
+      console.log(`  ❌ Failed: ${failed}`);
+
+      results
+        .filter((r) => r.error)
+        .forEach((failure) => {
+          console.error(`  ❌ ${failure.code}: ${failure.error}`);
+        });
+    } catch (error) {
+      console.error(
+        `[${new Date().toISOString()}] ❌ Job failed:`,
+        error.message,
+      );
+    }
   },
-  { scheduled: true, timezone: 'UTC' },
+  {
+    scheduled: true,
+    timezone: 'UTC',
+  },
 );
 
-process.on('SIGINT', async () => {
+process.on('SIGINT', () => {
+  console.log('\n👋 Shutting down index scraper service...');
   indexUpdateJob.stop();
-  await mongoose.disconnect();
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('\n👋 Shutting down index scraper service...');
+  indexUpdateJob.stop();
   process.exit(0);
 });
 

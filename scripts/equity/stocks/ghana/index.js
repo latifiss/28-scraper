@@ -1,4 +1,4 @@
-const { scrapeAADGhana } = require('./ACCESS');
+const { scrapeAADGhana } = require('./AADS');
 const { scrapeACCESSGhana } = require('./ACCESS');
 const { scrapeADBGhana } = require('./ADB');
 const { scrapeAGAGhana } = require('./AGA');

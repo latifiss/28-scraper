@@ -112,17 +112,6 @@ async function processStock(scraperFunction, index, total) {
 
     const existingStats = await getStatisticsByCompanyId(companyId);
 
-    if (!existingStats) {
-      logWithTime(
-        `  ⚠️ Statistics not found for ${companyId}, skipping update`,
-      );
-      return {
-        symbol: scrapedData.symbol,
-        success: false,
-        error: 'Statistics not found',
-      };
-    }
-
     const yearChange = parseYearChange(quote['1 Year change']);
     const weekRange = parse52WeekRange(quote['52 week range']);
     const marketCap = parseMarketCap(quote['Market Cap (GHS)']);
@@ -136,18 +125,16 @@ async function processStock(scraperFunction, index, total) {
     }
 
     if (weekRange.high !== 0 || weekRange.low !== 0) {
-      if (!updatePayload.key_statistics) {
-        updatePayload.key_statistics = {};
-      }
-      updatePayload.key_statistics.fifty_two_week_high = weekRange.high;
-      updatePayload.key_statistics.fifty_two_week_low = weekRange.low;
+      updatePayload.key_statistics = {
+        fifty_two_week_high: weekRange.high,
+        fifty_two_week_low: weekRange.low,
+      };
     }
 
     if (marketCap !== '0') {
-      if (!updatePayload.growth_valuation) {
-        updatePayload.growth_valuation = {};
-      }
-      updatePayload.growth_valuation.market_capitalization = marketCap;
+      updatePayload.growth_valuation = {
+        market_capitalization: marketCap,
+      };
     }
 
     if (Object.keys(updatePayload).length > 0) {
@@ -187,9 +174,6 @@ async function processStock(scraperFunction, index, total) {
     };
   } catch (error) {
     logWithTime(`  ✗ Failed for ${scraperName}: ${error.message}`);
-    if (error.response?.data) {
-      logWithTime(`     Response: ${JSON.stringify(error.response.data)}`);
-    }
 
     todayStats.failed++;
     todayStats.details.push({
@@ -254,7 +238,7 @@ async function scrapeAndUpdateAll() {
     const results = await Promise.all(promises);
 
     results.forEach((r) => {
-      if (r && r.success) runStats.successful++;
+      if (r.success) runStats.successful++;
       else runStats.failed++;
     });
 
@@ -264,10 +248,7 @@ async function scrapeAndUpdateAll() {
     }
   }
 
-  const successRate =
-    runStats.total > 0
-      ? ((runStats.successful / runStats.total) * 100).toFixed(1)
-      : '0';
+  const successRate = ((runStats.successful / runStats.total) * 100).toFixed(1);
   const endTime = getCurrentGhanaTime();
 
   console.log('\n' + '='.repeat(80));
@@ -309,9 +290,9 @@ async function scrapeAndUpdateAll() {
 }
 
 cron.schedule(
-  '0 10,12,15 * * 1-5',
+  '10 10 * * 1-5',
   () => {
-    logWithTime('⏰ Scheduled: 10:00 AM run started');
+    logWithTime('⏰ Scheduled: 10:10 AM run started');
     scrapeAndUpdateAll().catch((err) => {
       logWithTime(`💥 Fatal error: ${err.message}`);
     });
@@ -320,7 +301,7 @@ cron.schedule(
 );
 
 cron.schedule(
-  '0 12 * * 1-5',
+  '10 12 * * 1-5',
   () => {
     logWithTime('⏰ Scheduled: 12:10 PM run started');
     scrapeAndUpdateAll().catch((err) => {
@@ -331,7 +312,7 @@ cron.schedule(
 );
 
 cron.schedule(
-  '0 15 * * 1-5',
+  '10 15 * * 1-5',
   () => {
     logWithTime('⏰ Scheduled: 3:10 PM run started');
     scrapeAndUpdateAll().catch((err) => {
@@ -350,7 +331,7 @@ console.log(`🎯 Target API: ${API_BASE_URL}/stocks/equity`);
 console.log(`📊 Total scrapers loaded: ${gseSources.length}`);
 console.log(`⚡ Concurrent limit: ${CONCURRENT_LIMIT}`);
 console.log('\n⏰ Scheduled runs (Monday-Friday only):');
-console.log('  - 10:00 AM (Mid-morning update)');
+console.log('  - 10:10 AM (Mid-morning update)');
 console.log('  - 12:10 PM (Mid-day update)');
 console.log('  - 3:10 PM (After market close)');
 console.log('='.repeat(80) + '\n');

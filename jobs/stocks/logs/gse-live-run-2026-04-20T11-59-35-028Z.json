@@ -1,0 +1,240 @@
+{
+  "runId": 1776686280029,
+  "startTime": "4/20/2026, 11:58:00 AM",
+  "endTime": "4/20/2026, 11:59:35 AM",
+  "stats": {
+    "total": 38,
+    "successful": 0,
+    "failed": 38
+  },
+  "details": [
+    {
+      "symbol": "GLD",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:13 AM"
+    },
+    {
+      "symbol": "GGBL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:13 AM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:13 AM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:14 AM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:14 AM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:28 AM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:28 AM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:28 AM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:28 AM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:30 AM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:44 AM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:58:44 AM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:44 AM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:44 AM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:44 AM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/20/2026, 11:58:58 AM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:58 AM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:58 AM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:58 AM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:58:58 AM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:59:02 AM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:59:12 AM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:59:12 AM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:59:12 AM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 11:59:12 AM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/20/2026, 11:59:15 AM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:59:30 AM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:59:30 AM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:59:30 AM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 11:59:30 AM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:32 AM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:32 AM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:32 AM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:32 AM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:32 AM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:35 AM"
+    },
+    {
+      "symbol": "FML",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:35 AM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/20/2026, 11:59:35 AM"
+    }
+  ]
+}

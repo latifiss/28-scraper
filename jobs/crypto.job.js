@@ -1,145 +1,200 @@
 const cron = require('node-cron');
-const mongoose = require('mongoose');
 const axios = require('axios');
-const { Crypto } = require('../models/crypto.model');
 const cryptoSources = require('../scripts/cryptoIndex');
-const NodeCache = require('node-cache');
 
-const cryptoCache = new NodeCache({ stdTTL: 300, checkperiod: 120 });
+const API_BASE_URL = 'http://localhost:6060/api';
+const REQUEST_TIMEOUT = 120000;
+const TIMEZONE = 'UTC';
 
-const checkConnection = () => mongoose.connection.readyState === 1;
+let totalRuns = 0;
+let todayStats = {
+  date: new Date().toDateString(),
+  runs: 0,
+  successful: 0,
+  failed: 0,
+  details: [],
+};
 
-const MAX_WAIT_MS = 10000;
-const MAX_RETRIES = 3;
-const BASE_RETRY_DELAY = 5000;
-const REQUEST_DELAY = 1000;
-const USER_AGENT = 'MarketsAPI/1.0';
+const getCurrentUTC = () => {
+  return new Date().toISOString();
+};
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const logWithTime = (message) => {
+  console.log(`[${getCurrentUTC()}] ${message}`);
+};
 
-const withRetry = async (
-  fn,
-  retries = MAX_RETRIES,
-  delayMs = BASE_RETRY_DELAY,
-) => {
+async function getCryptoById(id) {
   try {
-    return await fn();
+    const response = await axios.get(`${API_BASE_URL}/crypto/id/${id}`, {
+      timeout: REQUEST_TIMEOUT,
+      headers: { 'Content-Type': 'application/json' },
+    });
+    return response.data;
   } catch (error) {
-    if (retries <= 0) throw error;
-
-    let retryAfter = error.response?.headers?.['retry-after']
-      ? parseInt(error.response.headers['retry-after']) * 1000
-      : delayMs;
-
-    const jitter = Math.floor(Math.random() * 1000);
-    retryAfter += jitter;
-
-    await delay(retryAfter);
-    return withRetry(fn, retries - 1, delayMs * 2);
+    if (error.response?.status === 404) {
+      return null;
+    }
+    throw error;
   }
-};
+}
 
-const withTimeout = (promise, timeoutMs, label) =>
-  Promise.race([
-    promise,
-    new Promise((_, reject) =>
-      setTimeout(() => reject(new Error(`Timeout: ${label}`)), timeoutMs),
-    ),
-  ]);
+async function createCrypto(cryptoData) {
+  const payload = {
+    id: cryptoData.id,
+    symbol: cryptoData.symbol,
+    name: cryptoData.name,
+    image: cryptoData.image || '',
+    current_price: cryptoData.current_price,
+    market_cap: cryptoData.market_cap,
+    market_cap_rank: cryptoData.market_cap_rank,
+    fully_diluted_valuation: cryptoData.fully_diluted_valuation,
+    total_volume: cryptoData.total_volume,
+    high_24h: cryptoData.high_24h,
+    low_24h: cryptoData.low_24h,
+    price_change_24h: cryptoData.price_change_24h,
+    price_change_percentage_24h: cryptoData.price_change_percentage_24h,
+    market_cap_change_24h: cryptoData.market_cap_change_24h,
+    market_cap_change_percentage_24h:
+      cryptoData.market_cap_change_percentage_24h,
+  };
 
-const cachedRequest = async (url, params = {}) => {
-  const cacheKey = `${url}:${JSON.stringify(params)}`;
-  const cached = cryptoCache.get(cacheKey);
-  if (cached) return cached;
-
-  await delay(REQUEST_DELAY);
-  const response = await withRetry(() =>
-    axios.get(url, {
-      params,
-      timeout: 5000,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': USER_AGENT,
-      },
-    }),
-  );
-
-  cryptoCache.set(cacheKey, response.data);
+  const response = await axios.post(`${API_BASE_URL}/crypto`, payload, {
+    timeout: REQUEST_TIMEOUT,
+    headers: { 'Content-Type': 'application/json' },
+  });
   return response.data;
-};
+}
+
+async function updateCryptoById(id, cryptoData) {
+  const payload = {
+    id: cryptoData.id,
+    name: cryptoData.name,
+    image: cryptoData.image || '',
+    current_price: cryptoData.current_price,
+    market_cap: cryptoData.market_cap,
+    market_cap_rank: cryptoData.market_cap_rank,
+    fully_diluted_valuation: cryptoData.fully_diluted_valuation,
+    total_volume: cryptoData.total_volume,
+    high_24h: cryptoData.high_24h,
+    low_24h: cryptoData.low_24h,
+    price_change_24h: cryptoData.price_change_24h,
+    price_change_percentage_24h: cryptoData.price_change_percentage_24h,
+    market_cap_change_24h: cryptoData.market_cap_change_24h,
+    market_cap_change_percentage_24h:
+      cryptoData.market_cap_change_percentage_24h,
+  };
+
+  const response = await axios.put(`${API_BASE_URL}/crypto/id/${id}`, payload, {
+    timeout: REQUEST_TIMEOUT,
+    headers: { 'Content-Type': 'application/json' },
+  });
+  return response.data;
+}
+
+async function addCryptoHistory(id, price) {
+  const payload = {
+    price: price,
+    date: new Date().toISOString(),
+  };
+
+  const response = await axios.post(
+    `${API_BASE_URL}/crypto/${id}/history`,
+    payload,
+    {
+      timeout: REQUEST_TIMEOUT,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+  return response.data;
+}
 
 const processCryptoUpdate = async (data) => {
   const start = Date.now();
   try {
-    const existing = await Crypto.findOne({ id: data.id }).lean();
+    if (typeof data.current_price !== 'number' || isNaN(data.current_price)) {
+      throw new Error(`Invalid current_price: ${data.current_price}`);
+    }
 
-    if (!existing) {
-      await Crypto.create({
-        ...data,
-        price_history: [],
-        last_updated: new Date(),
-      });
+    const existingCrypto = await getCryptoById(data.id);
 
+    if (!existingCrypto) {
+      await createCrypto(data);
+      await addCryptoHistory(data.id, data.current_price);
+      logWithTime(
+        `  ✅ Created ${data.symbol} (${data.id}) with price ${data.current_price}`,
+      );
       return {
         id: data.id,
+        symbol: data.symbol,
         action: 'created',
         duration: Date.now() - start,
       };
     }
 
-    await Crypto.updateOne(
-      { id: data.id },
-      {
-        $set: {
-          current_price: data.current_price,
-          market_cap: data.market_cap,
-          market_cap_rank: data.market_cap_rank,
-          fully_diluted_valuation: data.fully_diluted_valuation,
-          total_volume: data.total_volume,
-          high_24h: data.high_24h,
-          low_24h: data.low_24h,
-          price_change_24h: data.price_change_24h,
-          price_change_percentage_24h: data.price_change_percentage_24h,
-          market_cap_change_24h: data.market_cap_change_24h,
-          market_cap_change_percentage_24h:
-            data.market_cap_change_percentage_24h,
-          last_updated: new Date(),
-        },
-        $push: {
-          price_history: {
-            $each: [
-              {
-                date: new Date(),
-                price: existing.current_price,
-              },
-            ],
-            $position: 0,
-            $slice: 1000,
-          },
-        },
-      },
-    );
+    const oldPrice = existingCrypto.data.current_price;
+
+    await addCryptoHistory(data.id, oldPrice);
+    await updateCryptoById(data.id, {
+      id: data.id,
+      name: data.name,
+      image: data.image,
+      current_price: data.current_price,
+      price_change_24h: data.price_change_24h,
+      price_change_percentage_24h: data.price_change_percentage_24h,
+      market_cap_change_24h: data.market_cap_change_24h,
+      market_cap_change_percentage_24h: data.market_cap_change_percentage_24h,
+      high_24h: data.high_24h,
+      low_24h: data.low_24h,
+      total_volume: data.total_volume,
+      market_cap: data.market_cap,
+      market_cap_rank: data.market_cap_rank,
+      fully_diluted_valuation: data.fully_diluted_valuation,
+    });
+
+    if (oldPrice !== data.current_price) {
+      logWithTime(
+        `  📝 Updated ${data.symbol} (${data.id}): ${oldPrice} → ${data.current_price} (history saved)`,
+      );
+    } else {
+      logWithTime(
+        `  📝 Added history entry for ${data.symbol} (${data.id}): price unchanged at ${data.current_price}`,
+      );
+    }
 
     return {
       id: data.id,
+      symbol: data.symbol,
       action: 'updated',
-      oldPrice: existing.current_price,
+      oldPrice: oldPrice,
       newPrice: data.current_price,
       duration: Date.now() - start,
     };
   } catch (error) {
-    return { id: data.id, error: error.message };
+    logWithTime(`  ❌ Failed for ${data.symbol || data.id}: ${error.message}`);
+    return {
+      id: data.id,
+      symbol: data.symbol,
+      error: error.response?.data?.message || error.message,
+    };
   }
 };
 
 const cryptoUpdateJob = cron.schedule(
   '*/10 * * * *',
   async () => {
-    if (!checkConnection()) {
-      return;
-    }
+    console.log(`\n[${getCurrentUTC()}] 🔄 Starting crypto update job...`);
 
-    const startTime = Date.now();
+    const today = new Date().toDateString();
+    if (todayStats.date !== today) {
+      todayStats = {
+        date: today,
+        runs: 0,
+        successful: 0,
+        failed: 0,
+        details: [],
+      };
+    }
+    todayStats.runs++;
 
     try {
       const scrapers = Array.isArray(cryptoSources)
@@ -148,30 +203,88 @@ const cryptoUpdateJob = cron.schedule(
 
       const scrapedData = await Promise.all(
         scrapers.filter(Boolean).map((scraper) =>
-          withTimeout(
-            scraper(),
-            MAX_WAIT_MS,
-            scraper.name || 'anonymous',
-          ).catch((err) => ({
+          scraper().catch((err) => ({
             error: err.message,
           })),
         ),
       );
 
-      const validData = scrapedData.filter((data) => data?.id && !data.error);
+      const validData = scrapedData.filter(
+        (data) => data?.id && !data.error && data.current_price,
+      );
 
-      await Promise.all(validData.map(processCryptoUpdate));
-    } catch (error) {}
+      console.log(`📊 Processing ${validData.length} cryptocurrencies...`);
+
+      const results = await Promise.all(validData.map(processCryptoUpdate));
+
+      const successful = results.filter((r) => !r.error).length;
+      const failed = results.filter((r) => r.error).length;
+      const created = results.filter((r) => r.action === 'created').length;
+      const updated = results.filter((r) => r.action === 'updated').length;
+
+      todayStats.successful += successful;
+      todayStats.failed += failed;
+
+      results.forEach((r) => {
+        if (!r.error) {
+          todayStats.details.push({
+            id: r.id,
+            symbol: r.symbol,
+            action: r.action,
+            oldPrice: r.oldPrice,
+            newPrice: r.newPrice,
+            time: getCurrentUTC(),
+          });
+        } else {
+          todayStats.details.push({
+            id: r.id,
+            symbol: r.symbol,
+            error: r.error,
+            time: getCurrentUTC(),
+          });
+        }
+      });
+
+      console.log(`[${getCurrentUTC()}] ✅ Job completed:`);
+      console.log(`  ✅ Successful: ${successful}`);
+      console.log(`  ❌ Failed: ${failed}`);
+      console.log(`  📝 Created: ${created}, Updated: ${updated}`);
+
+      results
+        .filter((r) => r.error)
+        .forEach((failure) => {
+          console.error(
+            `  ❌ ${failure.symbol || failure.id}: ${failure.error}`,
+          );
+        });
+    } catch (error) {
+      console.error(`[${getCurrentUTC()}] ❌ Job failed:`, error.message);
+    }
   },
   {
     scheduled: true,
-    timezone: 'UTC',
+    timezone: TIMEZONE,
   },
 );
 
-process.on('SIGINT', async () => {
+console.log('='.repeat(70));
+console.log('🚀 Crypto Scraper Service Started');
+console.log('='.repeat(70));
+console.log(`🌍 Timezone: ${TIMEZONE}`);
+console.log(`🕒 Current time: ${getCurrentUTC()}`);
+console.log(`🎯 Target API: ${API_BASE_URL}/crypto`);
+console.log(`⚡ Update frequency: Every 10 minutes`);
+console.log('='.repeat(70) + '\n');
+
+process.on('SIGINT', () => {
+  console.log('\n👋 Shutting down crypto scraper service...');
   cryptoUpdateJob.stop();
-  await mongoose.disconnect();
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('\n👋 Shutting down crypto scraper service...');
+  cryptoUpdateJob.stop();
   process.exit(0);
 });
 

@@ -20,9 +20,9 @@ const scrapeBrentCrude = async () => {
       throw new Error('Brent Crude data not found');
     }
 
-    const currentPrice = parseFloat(brentRow.find('td#p').text().trim());
+    const price = parseFloat(brentRow.find('td#p').text().trim());
     const percentageChange = parseFloat(
-      brentRow.find('td#pch').text().trim().replace('%', '')
+      brentRow.find('td#pch').text().trim().replace('%', ''),
     );
 
     const commodityData = {
@@ -30,12 +30,12 @@ const scrapeBrentCrude = async () => {
       name: 'Brent Crude',
       unit: 'USD/Bbl',
       category: 'energy',
-      currentPrice: currentPrice,
+      price: price,
       percentage_change: percentageChange,
       price_history: [
         {
           date: new Date(),
-          price: currentPrice,
+          price: price,
         },
       ],
       last_updated: new Date(),

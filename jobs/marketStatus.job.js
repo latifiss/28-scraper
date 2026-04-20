@@ -1,7 +1,6 @@
 const axios = require('axios');
 const cron = require('node-cron');
 
-// ==================== CONFIGURATION ====================
 const API_BASE_URL = 'http://localhost:6060';
 const API_ENDPOINT = '/api/stocks/equity/gse/status/update';
 
@@ -10,22 +9,22 @@ const TRADING_END = { hour: 15, minute: 0 };
 const TIMEZONE = 'Africa/Accra';
 
 const PUBLIC_HOLIDAYS = [
-  { month: 1, day: 1 }, // New Year's Day
-  { month: 1, day: 7 }, // Constitution Day
-  { month: 3, day: 6 }, // Independence Day
-  { month: 3, day: 20 }, // Eid-Ul-Fitr (Ramadan)
-  { month: 3, day: 21 }, // Shaqq Day
-  { month: 4, day: 3 }, // Good Friday (2026)
-  { month: 4, day: 6 }, // Easter Monday (2026)
-  { month: 5, day: 1 }, // Labour Day
-  { month: 7, day: 1 }, // Republic Day
-  { month: 9, day: 21 }, // Founder's Day
-  { month: 12, day: 4 }, // Farmer's Day
-  { month: 12, day: 25 }, // Christmas Day
-  { month: 12, day: 26 }, // Boxing Day
+  { month: 1, day: 1 },
+  { month: 1, day: 7 },
+  { month: 3, day: 6 },
+  { month: 3, day: 20 },
+  { month: 3, day: 21 },
+  { month: 4, day: 3 },
+  { month: 4, day: 6 },
+  { month: 5, day: 1 },
+  { month: 5, day: 27 },
+  { month: 7, day: 1 },
+  { month: 9, day: 21 },
+  { month: 12, day: 4 },
+  { month: 12, day: 25 },
+  { month: 12, day: 26 },
 ];
 
-// ==================== MARKET STATUS FUNCTIONS ====================
 const isPublicHoliday = (date = new Date()) => {
   const ghanaDate = new Date(
     date.toLocaleString('en-US', { timeZone: TIMEZONE }),
@@ -65,11 +64,9 @@ const getMarketStatus = () => {
   const openTimeInMinutes = TRADING_START.hour * 60 + TRADING_START.minute;
   const closeTimeInMinutes = TRADING_END.hour * 60 + TRADING_END.minute;
 
-  // Default values
   let status = 'closed';
   let message = '';
 
-  // Check if it's a trading day
   if (!isTradingDay()) {
     if (day === 0) {
       message = 'Market closed - Sunday';
@@ -81,7 +78,6 @@ const getMarketStatus = () => {
     return { status, message };
   }
 
-  // It's a trading day, check time
   if (
     currentTimeInMinutes >= openTimeInMinutes &&
     currentTimeInMinutes < closeTimeInMinutes
@@ -99,7 +95,6 @@ const getMarketStatus = () => {
   return { status, message };
 };
 
-// ==================== API CALL FUNCTION ====================
 const updateMarketStatus = async () => {
   try {
     console.log(`\n[${new Date().toISOString()}] Checking market status...`);
@@ -108,7 +103,6 @@ const updateMarketStatus = async () => {
     console.log(`Status: ${status}`);
     console.log(`Message: ${message}`);
 
-    // Call your API endpoint to update the market status
     const response = await axios.post(
       `${API_BASE_URL}${API_ENDPOINT}`,
       {},
@@ -124,7 +118,6 @@ const updateMarketStatus = async () => {
       `✅ API Response: ${response.status} - ${response.data.message}`,
     );
 
-    // Optional: Get current status to verify
     const statusCheck = await axios.get(
       `${API_BASE_URL}/api/stocks/equity/gse/status`,
     );
@@ -147,9 +140,6 @@ const updateMarketStatus = async () => {
   }
 };
 
-// ==================== SCHEDULED JOBS ====================
-
-// Run at market open (10:00 AM) on weekdays
 cron.schedule(
   '0 10 * * 1-5',
   async () => {
@@ -163,7 +153,6 @@ cron.schedule(
   },
 );
 
-// Run at market close (3:00 PM) on weekdays
 cron.schedule(
   '0 15 * * 1-5',
   async () => {
@@ -175,7 +164,6 @@ cron.schedule(
   },
 );
 
-// Run every hour during trading hours (10 AM - 3 PM)
 cron.schedule(
   '0 10-15 * * 1-5',
   async () => {
@@ -190,7 +178,6 @@ cron.schedule(
   },
 );
 
-// Run at midnight to handle day changes
 cron.schedule(
   '0 0 * * *',
   async () => {
@@ -202,7 +189,6 @@ cron.schedule(
   },
 );
 
-// Run at 8:00 AM on weekdays to check for holidays before market opens
 cron.schedule(
   '0 8 * * 1-5',
   async () => {
@@ -214,7 +200,6 @@ cron.schedule(
   },
 );
 
-// ==================== HEALTH CHECK ====================
 const checkAPIHealth = async () => {
   try {
     await axios.get(`${API_BASE_URL}/api/stocks/equity/gse/status`, {
@@ -230,7 +215,6 @@ const checkAPIHealth = async () => {
   }
 };
 
-// ==================== INITIAL RUN ====================
 (async () => {
   console.log('='.repeat(50));
   console.log('🚀 GSE Market Status Updater Started');
@@ -252,11 +236,9 @@ const checkAPIHealth = async () => {
   console.log('  - 00:00 AM (Midnight check)');
   console.log('='.repeat(50));
 
-  // Check if API is reachable
   const apiOk = await checkAPIHealth();
 
   if (apiOk) {
-    // Initial update after 5 seconds
     setTimeout(async () => {
       console.log('\n🔄 Running initial market status update...');
       await updateMarketStatus();
@@ -264,7 +246,6 @@ const checkAPIHealth = async () => {
   }
 })();
 
-// Handle graceful shutdown
 process.on('SIGINT', () => {
   console.log('\n👋 Shutting down market status updater...');
   process.exit(0);

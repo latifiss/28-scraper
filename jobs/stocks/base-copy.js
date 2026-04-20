@@ -5,9 +5,9 @@ const cron = require('node-cron');
 
 const API_BASE_URL = 'http://localhost:6060/api';
 const EXTERNAL_API_BASE = 'https://dev.kwayisi.org/apis/gse/live';
-const SYMBOLS_FILE = path.join(__dirname, '..', '..', 'seed', 'gse.json');
-const CONCURRENT_LIMIT = 2;
-const REQUEST_TIMEOUT = 30000;
+const SYMBOLS_FILE = path.join(__dirname, 'seed', 'gse.json');
+const CONCURRENT_LIMIT = 5;
+const REQUEST_TIMEOUT = 10000;
 const TIMEZONE = 'Africa/Accra';
 
 let totalRuns = 0;
@@ -29,46 +29,6 @@ const logWithTime = (message) => {
   console.log(`[${getCurrentGhanaTime()}] ${message}`);
 };
 
-const GHANA_HOLIDAYS = [
-  { month: 0, day: 1 },
-  { month: 0, day: 7 },
-  { month: 2, day: 6 },
-  { month: 2, day: 20 },
-  { month: 2, day: 21 },
-  { month: 3, day: 3 },
-  { month: 3, day: 6 },
-  { month: 4, day: 1 },
-  { month: 4, day: 27 },
-  { month: 6, day: 1 },
-  { month: 8, day: 21 },
-  { month: 11, day: 4 },
-  { month: 11, day: 25 },
-  { month: 11, day: 26 },
-];
-
-const isGhanaHoliday = () => {
-  const now = getCurrentGhanaTime();
-  const date = new Date(now);
-  const month = date.getMonth();
-  const day = date.getDate();
-  return GHANA_HOLIDAYS.some(
-    (holiday) => holiday.month === month && holiday.day === day,
-  );
-};
-
-const isWeekend = () => {
-  const now = getCurrentGhanaTime();
-  const date = new Date(now);
-  const day = date.getDay();
-  return day === 0 || day === 6;
-};
-
-const shouldRun = () => {
-  if (isWeekend()) return false;
-  if (isGhanaHoliday()) return false;
-  return true;
-};
-
 async function loadSymbols() {
   try {
     const data = await fs.readFile(SYMBOLS_FILE, 'utf8');
@@ -82,7 +42,7 @@ async function loadSymbols() {
 async function fetchExternalData(symbol) {
   try {
     const response = await axios.get(`${EXTERNAL_API_BASE}/${symbol}`, {
-      timeout: 20000,
+      timeout: REQUEST_TIMEOUT,
       headers: {
         Accept: 'application/json',
         'User-Agent': 'GSE-Data-Scraper/1.0',
@@ -99,7 +59,7 @@ async function getStatisticsByCompanyId(companyId) {
     const response = await axios.get(
       `${API_BASE_URL}/stocks/equity/statistics/${companyId}`,
       {
-        timeout: 15000,
+        timeout: 10000,
         headers: { 'Content-Type': 'application/json' },
       },
     );
@@ -142,7 +102,8 @@ async function addPriceEntry(companyId, price, date = null) {
 
 async function updateLatestPrice(companyId, price) {
   const payload = {
-    price: price.toString(),
+    current_price: price.toString(),
+    last_updated: new Date().toISOString(),
   };
   const response = await axios.put(
     `${API_BASE_URL}/stocks/equity/price-history/${companyId}/latest`,
@@ -160,7 +121,7 @@ async function getPriceHistory(companyId) {
     const response = await axios.get(
       `${API_BASE_URL}/stocks/equity/price-history/${companyId}`,
       {
-        timeout: 15000,
+        timeout: 10000,
         headers: { 'Content-Type': 'application/json' },
       },
     );
@@ -188,6 +149,7 @@ async function processSymbol(symbolItem) {
 
     const updatePayload = {
       key_statistics: {
+        current_price: currentPrice.toString(),
         volume: volume,
         percentage_change: percentageChange,
       },
@@ -202,7 +164,6 @@ async function processSymbol(symbolItem) {
 
     if (currentPrice > 0) {
       const existingPriceHistory = await getPriceHistory(symbol);
-      const oldPrice = existingStats?.data?.key_statistics?.current_price;
 
       if (!existingPriceHistory) {
         await addPriceEntry(symbol, currentPrice);
@@ -229,9 +190,6 @@ async function processSymbol(symbolItem) {
     return { symbol, success: true, data: externalData };
   } catch (error) {
     logWithTime(`  ✗ Failed for ${symbol}: ${error.message}`);
-    if (error.response?.data) {
-      logWithTime(`     Response: ${JSON.stringify(error.response.data)}`);
-    }
 
     todayStats.failed++;
     todayStats.details.push({
@@ -246,11 +204,6 @@ async function processSymbol(symbolItem) {
 }
 
 async function scrapeAndUpdate() {
-  if (!shouldRun()) {
-    logWithTime('⏭️ Skipping run: Weekend or Ghana public holiday');
-    return;
-  }
-
   const runId = Date.now();
   const startTime = getCurrentGhanaTime();
 
@@ -354,18 +307,66 @@ async function scrapeAndUpdate() {
 }
 
 cron.schedule(
-  '*/30 10-15 * * 1-5',
+  '5 10 * * 1-5',
   () => {
-    const currentHour = new Date().getHours();
-    const currentMinute = new Date().getMinutes();
-
-    if (currentHour === 15 && currentMinute > 30) {
-      return;
-    }
-
-    logWithTime('⏰ Running scheduled job');
+    logWithTime('⏰ Scheduled: 10:05 AM run started');
     scrapeAndUpdate().catch((err) => {
-      logWithTime(`💥 Fatal error: ${err.message}`);
+      logWithTime(`💥 Fatal error in 10:05 AM run: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
+
+cron.schedule(
+  '5 11 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 11:05 AM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error in 11:05 AM run: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
+
+cron.schedule(
+  '5 12 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 12:05 PM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error in 12:05 PM run: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
+
+cron.schedule(
+  '5 13 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 1:05 PM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error in 1:05 PM run: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
+
+cron.schedule(
+  '5 14 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 2:05 PM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error in 2:05 PM run: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
+
+cron.schedule(
+  '5 15 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 3:05 PM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error in 3:05 PM run: ${err.message}`);
     });
   },
   { timezone: TIMEZONE },
@@ -380,10 +381,13 @@ console.log(`📡 External API: ${EXTERNAL_API_BASE}`);
 console.log(`🎯 Target API: ${API_BASE_URL}/stocks/equity`);
 console.log(`📋 Symbols file: ${SYMBOLS_FILE}`);
 console.log(`⚡ Concurrent limit: ${CONCURRENT_LIMIT}`);
-console.log(
-  `⏰ Schedule: Every 30 minutes from 10:00 AM to 3:30 PM, Monday-Friday`,
-);
-console.log(`🎉 Holiday detection: Enabled (Ghana public holidays skipped)`);
+console.log('\n⏰ Scheduled runs (Monday-Friday only):');
+console.log('  - 10:05 AM');
+console.log('  - 11:05 AM');
+console.log('  - 12:05 PM');
+console.log('  - 1:05 PM');
+console.log('  - 2:05 PM');
+console.log('  - 3:05 PM');
 console.log('='.repeat(70) + '\n');
 
 process.on('SIGINT', () => {

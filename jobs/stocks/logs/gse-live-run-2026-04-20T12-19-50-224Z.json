@@ -1,0 +1,240 @@
+{
+  "runId": 1776687480047,
+  "startTime": "4/20/2026, 12:18:00 PM",
+  "endTime": "4/20/2026, 12:19:50 PM",
+  "stats": {
+    "total": 38,
+    "successful": 0,
+    "failed": 38
+  },
+  "details": [
+    {
+      "symbol": "GGBL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:11 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:11 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:11 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:11 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:11 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:25 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:25 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:25 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:25 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:25 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:38 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:38 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:38 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:38 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:39 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:53 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:18:53 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/20/2026, 12:18:53 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:54 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:54 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:18:57 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:07 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:07 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:07 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:08 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/20/2026, 12:19:10 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:21 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:21 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:21 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:22 PM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:35 PM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:35 PM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:35 PM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "failed",
+      "error": "timeout of 10000ms exceeded",
+      "time": "4/20/2026, 12:19:35 PM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:36 PM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:49 PM"
+    },
+    {
+      "symbol": "FML",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:49 PM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "failed",
+      "error": "Request failed with status code 400",
+      "time": "4/20/2026, 12:19:50 PM"
+    }
+  ]
+}

@@ -1,10 +1,9 @@
 const cron = require('node-cron');
-const mongoose = require('mongoose');
-const Commodity = require('../models/commodity.model');
+const axios = require('axios');
 const commoditySources = require('../scripts/commoditiesIndex');
 
-const checkConnection = () => mongoose.connection.readyState === 1;
-const MAX_WAIT_MS = 5 * 60 * 1000;
+const MAX_WAIT_MS = 10 * 60 * 1000;
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:6060/api';
 
 const getETHour = () => {
   const now = new Date();
@@ -12,6 +11,7 @@ const getETHour = () => {
     now.toLocaleString('en-US', { timeZone: 'America/New_York' }),
   ).getHours();
 };
+
 const getETDay = () => {
   const now = new Date();
   return new Date(
@@ -19,111 +19,254 @@ const getETDay = () => {
   ).getDay();
 };
 
-const withTimeout = (promise, timeoutMs, label) => {
-  return Promise.race([
-    promise,
-    new Promise((_, reject) =>
-      setTimeout(() => reject(new Error(`Timeout: ${label}`)), timeoutMs),
-    ),
-  ]);
-};
-
-const processCommodityUpdate = async (data) => {
-  const start = Date.now();
+async function commodityExists(code) {
   try {
-    if (typeof data.currentPrice !== 'number' || isNaN(data.currentPrice)) {
-      throw new Error(`Invalid currentPrice: ${data.currentPrice}`);
+    const response = await axios.get(
+      `${API_BASE_URL}/commodity/commodities/${code}`,
+      {
+        timeout: 60000,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 404) {
+      return null;
+    }
+    throw error;
+  }
+}
+
+async function createCommodityViaAPI(commodityData) {
+  const payload = {
+    code: commodityData.code,
+    name: commodityData.name,
+    unit: commodityData.unit,
+    category: commodityData.category,
+    currentPrice: commodityData.currentPrice,
+    percentage_change: commodityData.percentage_change || 0,
+  };
+
+  const response = await axios.post(
+    `${API_BASE_URL}/commodity/commodities`,
+    payload,
+    {
+      timeout: 60000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+async function updateCurrentPriceOnly(code, newPrice, percentageChange) {
+  const payload = {
+    price: newPrice,
+    percentage_change: percentageChange || 0,
+    last_updated: new Date().toISOString(),
+  };
+
+  const response = await axios.put(
+    `${API_BASE_URL}/commodity/commodities/${code}/latest`,
+    payload,
+    {
+      timeout: 60000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+async function addPriceEntryToHistory(code, price, date = null) {
+  const payload = {
+    price: price,
+    date: date || new Date().toISOString(),
+  };
+
+  const response = await axios.post(
+    `${API_BASE_URL}/commodity/commodities/${code}/entries`,
+    payload,
+    {
+      timeout: 60000,
+      headers: { 'Content-Type': 'application/json' },
+    },
+  );
+
+  return response.data;
+}
+
+const processCommodityUpdate = async (scrapedData) => {
+  const start = Date.now();
+
+  if (!scrapedData || scrapedData.error) {
+    console.log(
+      `  ⚠️  Skipping invalid data: ${scrapedData?.error || 'No data'}`,
+    );
+    return {
+      code: scrapedData?.code || 'unknown',
+      error: scrapedData?.error || 'No data',
+      skipped: true,
+    };
+  }
+
+  let { code, name, unit, category, currentPrice, percentage_change } =
+    scrapedData;
+
+  if (!currentPrice && scrapedData.price) {
+    currentPrice = scrapedData.price;
+  }
+
+  if (!percentage_change && scrapedData.percentage_change) {
+    percentage_change = scrapedData.percentage_change;
+  }
+
+  try {
+    if (!code) {
+      throw new Error(`Missing code for commodity`);
     }
 
-    const existing = await Commodity.findOne({ code: data.code }).lean();
-
-    if (!existing) {
-      await Commodity.create({
-        code: data.code,
-        name: data.name,
-        unit: data.unit,
-        category: data.category,
-        currentPrice: data.currentPrice,
-        percentage_change: data.percentage_change,
-        price_history: data.price_history || [],
-        last_updated: new Date(),
-      });
+    if (typeof currentPrice !== 'number' || isNaN(currentPrice)) {
+      console.log(
+        `  ⚠️  Skipping ${code}: Invalid price received (${currentPrice})`,
+      );
       return {
-        code: data.code,
+        code,
+        error: `Invalid price: ${currentPrice}`,
+        skipped: true,
+      };
+    }
+
+    const existingCommodity = await commodityExists(code);
+
+    if (!existingCommodity) {
+      await createCommodityViaAPI({
+        code,
+        name: name || code,
+        unit: unit || 'unit',
+        category: category || 'Other',
+        currentPrice,
+        percentage_change: percentage_change || 0,
+      });
+
+      await addPriceEntryToHistory(code, currentPrice);
+
+      console.log(`  ✅ Created ${code} with price ${currentPrice}`);
+
+      return {
+        code,
         action: 'created',
+        historyAdded: true,
         duration: Date.now() - start,
       };
     }
 
-    const existingPrice = Number(existing.currentPrice);
-    if (isNaN(existingPrice)) {
-      throw new Error(`Existing price is invalid: ${existing.currentPrice}`);
+    const oldPrice = existingCommodity.data.currentPrice;
+
+    await addPriceEntryToHistory(code, oldPrice);
+    await updateCurrentPriceOnly(code, currentPrice, percentage_change || 0);
+
+    if (oldPrice !== currentPrice) {
+      console.log(`  📝 Updated ${code}: ${oldPrice} → ${currentPrice}`);
+    } else {
+      console.log(
+        `  📝 Added history entry for ${code}: price unchanged at ${currentPrice}`,
+      );
     }
 
-    await Commodity.updateOne(
-      { code: data.code },
-      {
-        $set: {
-          currentPrice: data.currentPrice,
-          percentage_change: data.percentage_change,
-          last_updated: new Date(),
-        },
-        $push: {
-          price_history: {
-            $each: [{ date: new Date(), price: existingPrice }],
-            $position: 0,
-          },
-        },
-      },
-    );
-
     return {
-      code: data.code,
+      code,
       action: 'updated',
-      oldPrice: existingPrice,
-      newPrice: data.currentPrice,
+      oldPrice: oldPrice,
+      newPrice: currentPrice,
+      historyAdded: true,
       duration: Date.now() - start,
     };
   } catch (error) {
-    return { code: data.code, error: error.message };
+    console.error(`  ❌ Failed ${code}:`, error.message);
+    if (error.response?.data) {
+      console.error(`  📄 Response data:`, error.response.data);
+    }
+    return {
+      code,
+      error: error.response?.data?.message || error.message,
+      status: error.response?.status,
+    };
   }
 };
 
 const commodityUpdateJob = cron.schedule(
-  '0 * * * *',
+  '*/5 * * * *',
   async () => {
     const etHour = getETHour();
     const etDay = getETDay();
 
     if (etDay === 6 || etHour === 17) {
+      console.log(`[${new Date().toISOString()}] Skipping: Saturday or 5PM ET`);
       return;
     }
 
-    if (!checkConnection()) {
-      return;
-    }
-
-    const startTime = Date.now();
+    console.log(
+      `\n[${new Date().toISOString()}] 🔄 Starting commodity update job...`,
+    );
 
     try {
-      const scrapers = Array.isArray(commoditySources)
-        ? commoditySources
-        : Object.values(commoditySources);
-
       const scrapedData = await Promise.all(
-        scrapers.map((scraper) =>
-          withTimeout(
-            scraper(),
-            MAX_WAIT_MS,
-            scraper.name || 'anonymous',
-          ).catch((error) => ({ error: error.message })),
-        ),
+        commoditySources.map(async (scraperFn) => {
+          try {
+            const result = await scraperFn();
+            return result;
+          } catch (err) {
+            console.error(`Scraper error for ${scraperFn.name}:`, err.message);
+            return { error: err.message };
+          }
+        }),
       );
 
-      const validData = scrapedData.filter((data) => data?.code && !data.error);
+      console.log(
+        `📊 Raw scraped data:`,
+        scrapedData.map((d) => ({
+          code: d?.code,
+          price: d?.price || d?.currentPrice,
+          name: d?.name,
+          error: d?.error,
+        })),
+      );
 
-      await Promise.all(validData.map(processCommodityUpdate));
-    } catch (error) {}
+      const validData = scrapedData.filter(
+        (data) =>
+          data?.code &&
+          !data.error &&
+          (typeof data.currentPrice === 'number' ||
+            typeof data.price === 'number'),
+      );
+
+      console.log(`📊 Processing ${validData.length} commodities...`);
+
+      const results = await Promise.all(validData.map(processCommodityUpdate));
+
+      const successful = results.filter((r) => !r.error && !r.skipped).length;
+      const failed = results.filter((r) => r.error).length;
+      const skipped = results.filter((r) => r.skipped).length;
+      const historyAdded = results.filter((r) => r.historyAdded).length;
+
+      console.log(`[${new Date().toISOString()}] ✅ Job completed:`);
+      console.log(`  ✅ Successful: ${successful}`);
+      console.log(`  ❌ Failed: ${failed}`);
+      console.log(`  ⏭️  Skipped: ${skipped}`);
+      console.log(`  📝 History entries added: ${historyAdded}`);
+
+      results
+        .filter((r) => r.error)
+        .forEach((failure) => {
+          console.error(`  ❌ ${failure.code}: ${failure.error}`);
+        });
+    } catch (error) {
+      console.error(
+        `[${new Date().toISOString()}] ❌ Job failed:`,
+        error.message,
+      );
+    }
   },
   {
     scheduled: true,
