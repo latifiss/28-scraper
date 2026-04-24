@@ -1,13 +1,10 @@
-<div style={{ textAlign: 'center' }}>
-  <Image
-    style={{ width: 150, height: 100 }}
-    src="/android-chrome-192x192.png"
-    alt="28 Scraper Logo"
-    width={150}
-    height={100}
-  />
-  <p style={{ marginTop: 14 }}>28 Scraper</p>
-</div>
+#
+
+<p align="center">28 Scraper</p>
+
+<p align="center">
+  <img src="./public/android-chrome-192x192.png" alt="28-logo Logo" width="150" height="100" />
+</p>
 
 A production-ready market intelligence scraper service built with Node.js. This project collects, normalizes, and syncs financial market data from multiple sources into a central API/database system.
 
