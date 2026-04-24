@@ -23,9 +23,8 @@ const url =
         .trim();
 
       if (currencyPair === 'GBPGHS') {
-        // Get date and remove the "responsiveExpander" text
         const dateCell = $(row).find('td.column-dt_date');
-        dateCell.find('.responsiveExpander').remove(); // Remove the span
+        dateCell.find('.responsiveExpander').remove();
         const date = dateCell.text().trim();
 
         results.push({

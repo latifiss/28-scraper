@@ -5,7 +5,6 @@ const indexSources = require('../scripts/indicesIndex');
 const MAX_WAIT_MS = 10000;
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:6060/api';
 
-// ==================== TIME UTILITIES ====================
 const getGhanaTime = () => {
   const now = new Date();
   return new Date(now.toLocaleString('en-US', { timeZone: 'Africa/Accra' }));
@@ -19,8 +18,6 @@ const withTimeout = (promise, timeoutMs, label) => {
     ),
   ]);
 };
-
-// ==================== API CALL FUNCTIONS ====================
 
 async function indexExists(code) {
   try {
@@ -139,8 +136,6 @@ async function getIndexHistory(code) {
   }
 }
 
-// ==================== PROCESS INDEX UPDATE ====================
-
 const processIndexUpdate = async (scrapedData) => {
   const start = Date.now();
   const {
@@ -219,8 +214,6 @@ const processIndexUpdate = async (scrapedData) => {
     };
   }
 };
-
-// ==================== MAIN JOB FUNCTION ====================
 
 const indexUpdateJob = cron.schedule(
   '*/2 * * * *',

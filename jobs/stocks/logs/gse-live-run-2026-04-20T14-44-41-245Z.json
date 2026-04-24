@@ -1,0 +1,244 @@
+{
+  "runId": 1776696240039,
+  "startTime": "4/20/2026, 2:44:00 PM",
+  "endTime": "4/20/2026, 2:44:41 PM",
+  "stats": {
+    "total": 38,
+    "successful": 0,
+    "failed": 38
+  },
+  "baseline": {
+    "date": "Mon Apr 20 2026",
+    "prices": {}
+  },
+  "details": [
+    {
+      "symbol": "GGBL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:00 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:00 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:03 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:03 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:05 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:05 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:07 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:07 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:09 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:09 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:12 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:12 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:14 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:14 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:16 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:16 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:18 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:18 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:21 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:21 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:23 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:23 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:25 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:25 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:27 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:27 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/20/2026, 2:44:30 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:30 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:32 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:32 PM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:34 PM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:34 PM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:36 PM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:36 PM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:38 PM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:38 PM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:41 PM"
+    },
+    {
+      "symbol": "FML",
+      "status": "failed",
+      "error": "",
+      "time": "4/20/2026, 2:44:41 PM"
+    }
+  ]
+}

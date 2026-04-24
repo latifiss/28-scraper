@@ -1,0 +1,251 @@
+{
+  "runId": 1776784200039,
+  "startTime": "4/21/2026, 3:10:00 PM",
+  "endTime": "4/21/2026, 3:10:36 PM",
+  "stats": {
+    "total": 38,
+    "successful": 0,
+    "failed": 38
+  },
+  "baseline": {
+    "date": "Tue Apr 21 2026",
+    "prices": {
+      "GGBL": 15.3,
+      "GLD": 502.89,
+      "GOIL": 7.95,
+      "HORDS": 0.1,
+      "MAC": 5.2,
+      "IIL": 0.05
+    }
+  },
+  "details": [
+    {
+      "symbol": "GGBL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:00 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:00 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:02 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:02 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:04 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:04 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:06 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:06 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:08 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:08 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:10 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:10 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:12 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:12 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:14 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:14 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:16 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:16 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:18 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:18 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:20 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:20 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:22 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:22 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:24 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:24 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:26 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:26 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:28 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:28 PM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:30 PM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:30 PM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:32 PM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:32 PM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:34 PM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:34 PM"
+    },
+    {
+      "symbol": "FML",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:36 PM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "failed",
+      "error": "External API error: getaddrinfo ENOTFOUND dev.kwayisi.org",
+      "time": "4/21/2026, 3:10:36 PM"
+    }
+  ]
+}

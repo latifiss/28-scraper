@@ -11,6 +11,8 @@ const REQUEST_TIMEOUT = 30000;
 const TIMEZONE = 'Africa/Accra';
 
 let totalRuns = 0;
+let dailyBaseline = {};
+
 let todayStats = {
   date: new Date().toDateString(),
   runs: 0,
@@ -27,6 +29,14 @@ const getCurrentGhanaTime = () => {
 
 const logWithTime = (message) => {
   console.log(`[${getCurrentGhanaTime()}] ${message}`);
+};
+
+const resetDailyBaseline = () => {
+  const today = new Date().toDateString();
+  if (dailyBaseline.date !== today) {
+    dailyBaseline = { date: today, prices: {} };
+    logWithTime(`📅 New trading day detected, resetting daily baseline`);
+  }
 };
 
 const GHANA_HOLIDAYS = [
@@ -184,25 +194,47 @@ async function processSymbol(symbolItem) {
 
     const currentPrice = parseFloat(externalData.price) || 0;
     const volume = externalData.volume || 0;
-    const percentageChange = parseFloat(externalData.change) || 0;
+
+    if (currentPrice === 0) {
+      logWithTime(`  ⚠️ Skipping ${symbol}: Invalid price 0`);
+      return { symbol, success: false, error: 'Invalid price 0' };
+    }
+
+    const existingStats = await getStatisticsByCompanyId(symbol);
+    let percentageChange = 0;
+
+    if (!dailyBaseline.prices[symbol]) {
+      dailyBaseline.prices[symbol] = currentPrice;
+      percentageChange = 0;
+      logWithTime(`  📍 Set daily baseline for ${symbol}: ${currentPrice}`);
+    } else {
+      const baselinePrice = dailyBaseline.prices[symbol];
+      percentageChange = ((currentPrice - baselinePrice) / baselinePrice) * 100;
+      percentageChange = parseFloat(percentageChange.toFixed(4));
+      logWithTime(
+        `  📊 ${symbol}: baseline=${baselinePrice}, current=${currentPrice}, change=${percentageChange}%`,
+      );
+    }
 
     const updatePayload = {
       key_statistics: {
         volume: volume,
         percentage_change: percentageChange,
+        current_price: currentPrice.toString(),
       },
     };
 
-    const existingStats = await getStatisticsByCompanyId(symbol);
-
     if (existingStats) {
       await updateStatistics(symbol, updatePayload);
-      logWithTime(`  ✓ Updated statistics for ${symbol}`);
+      logWithTime(
+        `  ✓ Updated statistics for ${symbol} (daily change: ${percentageChange}%)`,
+      );
+    } else {
+      logWithTime(`  ⚠️ Statistics not found for ${symbol}, skipping update`);
     }
 
     if (currentPrice > 0) {
       const existingPriceHistory = await getPriceHistory(symbol);
-      const oldPrice = existingStats?.data?.key_statistics?.current_price;
 
       if (!existingPriceHistory) {
         await addPriceEntry(symbol, currentPrice);
@@ -222,7 +254,9 @@ async function processSymbol(symbolItem) {
     todayStats.details.push({
       symbol,
       status: 'success',
-      data: externalData,
+      price: currentPrice,
+      dailyChange: percentageChange,
+      baselinePrice: dailyBaseline.prices[symbol],
       time: getCurrentGhanaTime(),
     });
 
@@ -250,6 +284,8 @@ async function scrapeAndUpdate() {
     logWithTime('⏭️ Skipping run: Weekend or Ghana public holiday');
     return;
   }
+
+  resetDailyBaseline();
 
   const runId = Date.now();
   const startTime = getCurrentGhanaTime();
@@ -343,6 +379,7 @@ async function scrapeAndUpdate() {
     startTime,
     endTime,
     stats: runStats,
+    baseline: dailyBaseline,
     details: todayStats.details.filter(
       (d) => d.time >= startTime && d.time <= endTime,
     ),
@@ -354,16 +391,31 @@ async function scrapeAndUpdate() {
 }
 
 cron.schedule(
-  '*/30 10-15 * * 1-5',
+  '0 10,12,15 * * 1-5',
   () => {
-    const currentHour = new Date().getHours();
-    const currentMinute = new Date().getMinutes();
+    logWithTime('⏰ Scheduled: 10:10 AM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
 
-    if (currentHour === 15 && currentMinute > 30) {
-      return;
-    }
+cron.schedule(
+  '10 12 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 12:10 PM run started');
+    scrapeAndUpdate().catch((err) => {
+      logWithTime(`💥 Fatal error: ${err.message}`);
+    });
+  },
+  { timezone: TIMEZONE },
+);
 
-    logWithTime('⏰ Running scheduled job');
+cron.schedule(
+  '10 15 * * 1-5',
+  () => {
+    logWithTime('⏰ Scheduled: 3:10 PM run started');
     scrapeAndUpdate().catch((err) => {
       logWithTime(`💥 Fatal error: ${err.message}`);
     });
@@ -380,10 +432,14 @@ console.log(`📡 External API: ${EXTERNAL_API_BASE}`);
 console.log(`🎯 Target API: ${API_BASE_URL}/stocks/equity`);
 console.log(`📋 Symbols file: ${SYMBOLS_FILE}`);
 console.log(`⚡ Concurrent limit: ${CONCURRENT_LIMIT}`);
-console.log(
-  `⏰ Schedule: Every 30 minutes from 10:00 AM to 3:30 PM, Monday-Friday`,
-);
+console.log(`⏰ Scheduled runs (Monday-Friday only):`);
+console.log(`  - 10:10 AM (Mid-morning update)`);
+console.log(`  - 12:10 PM (Mid-day update)`);
+console.log(`  - 3:10 PM (After market close)`);
 console.log(`🎉 Holiday detection: Enabled (Ghana public holidays skipped)`);
+console.log(
+  `📈 Daily change tracking: Enabled (first price of day as baseline)`,
+);
 console.log('='.repeat(70) + '\n');
 
 process.on('SIGINT', () => {
