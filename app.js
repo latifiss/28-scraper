@@ -35,26 +35,26 @@ const startAllJobs = async () => {
     const forexJob = require('./jobs/forex.job');
     console.log('✅ Forex job loaded');
 
-    // const forexInterbankJob = require('./jobs/interbank.job');
-    // console.log('✅ Forex Interbank job loaded');
+    const forexInterbankJob = require('./jobs/interbank.job');
+    console.log('✅ Forex Interbank job loaded');
 
-    // const commodityJob = require('./jobs/commodities.job');
-    // console.log('✅ Commodity job loaded');
+    const commodityJob = require('./jobs/commodities.job');
+    console.log('✅ Commodity job loaded');
 
-    // const cryptoJob = require('./jobs/crypto.job');
-    // console.log('✅ Crypto job loaded');
+    const cryptoJob = require('./jobs/crypto.job');
+    console.log('✅ Crypto job loaded');
 
-    // const indexJob = require('./jobs/indice.job');
-    // console.log('✅ Index job loaded');
+    const indexJob = require('./jobs/indice.job');
+    console.log('✅ Index job loaded');
 
-    // const gseStocksFundamentalJob = require('./jobs/stocks/caps');
-    // console.log('✅ GSE Stocks Fundamental job loaded');
+    const gseStocksFundamentalJob = require('./jobs/stocks/caps');
+    console.log('✅ GSE Stocks Fundamental job loaded');
 
-    // const gseStocksLiveJob = require('./jobs/stocks/base');
-    // console.log('✅ GSE Stocks Live job loaded');
+    const gseStocksLiveJob = require('./jobs/stocks/base');
+    console.log('✅ GSE Stocks Live job loaded');
 
-    // const gseMarketStatusJob = require('./jobs/marketStatus.job');
-    // console.log('✅ GSE Market Status job loaded');
+    const gseMarketStatusJob = require('./jobs/marketStatus.job');
+    console.log('✅ GSE Market Status job loaded');
 
     console.log('='.repeat(60));
     console.log('✅ All scraper jobs started successfully');
