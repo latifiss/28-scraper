@@ -5,7 +5,7 @@ const cron = require('node-cron');
 
 const gseSources = require('../../scripts/equity/stocks/ghana/index');
 
-const API_BASE_URL = 'http://localhost:6060/api';
+const API_BASE_URL = 'https://api.28-markets.com/api';
 const CONCURRENT_LIMIT = 3;
 const REQUEST_TIMEOUT = 30000;
 const TIMEZONE = 'Africa/Accra';

@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const axios = require('axios');
 const interbankScraper = require('../scripts/interbank/rates');
 
-const API_BASE_URL = 'http://localhost:6060/api';
+const API_BASE_URL = 'https://api.28-markets.com/api';
 const MAX_WAIT_MS = 5 * 60 * 1000;
 const REQUEST_TIMEOUT = 30000;
 const TIMEZONE = 'Africa/Accra';

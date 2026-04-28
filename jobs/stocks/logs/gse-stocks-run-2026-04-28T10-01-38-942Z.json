@@ -1,0 +1,228 @@
+{
+  "runId": 1777370400147,
+  "startTime": "4/28/2026, 10:00:00 AM",
+  "endTime": "4/28/2026, 10:01:38 AM",
+  "stats": {
+    "total": 36,
+    "successful": 0,
+    "failed": 36
+  },
+  "details": [
+    {
+      "scraper": "scrapeACCESSGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-access/",
+      "time": "4/28/2026, 10:00:06 AM"
+    },
+    {
+      "scraper": "scrapeAADGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-aad/",
+      "time": "4/28/2026, 10:00:06 AM"
+    },
+    {
+      "scraper": "scrapeADBGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-adb/",
+      "time": "4/28/2026, 10:00:07 AM"
+    },
+    {
+      "scraper": "scrapeASGGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-asg/",
+      "time": "4/28/2026, 10:00:15 AM"
+    },
+    {
+      "scraper": "scrapeAGAGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-aga/",
+      "time": "4/28/2026, 10:00:15 AM"
+    },
+    {
+      "scraper": "scrapeALLGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-allgh/",
+      "time": "4/28/2026, 10:00:15 AM"
+    },
+    {
+      "scraper": "scrapeCLYDGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-clyd/",
+      "time": "4/28/2026, 10:00:23 AM"
+    },
+    {
+      "scraper": "scrapeBOPPGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-bopp/",
+      "time": "4/28/2026, 10:00:24 AM"
+    },
+    {
+      "scraper": "scrapeCALGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-cal/",
+      "time": "4/28/2026, 10:00:24 AM"
+    },
+    {
+      "scraper": "scrapeCMLTGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-cmlt/",
+      "time": "4/28/2026, 10:00:32 AM"
+    },
+    {
+      "scraper": "scrapeCPCGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-cpc/",
+      "time": "4/28/2026, 10:00:32 AM"
+    },
+    {
+      "scraper": "scrapeDASLPharmaGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-dasl/",
+      "time": "4/28/2026, 10:00:32 AM"
+    },
+    {
+      "scraper": "scrapeEGLGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-egl/",
+      "time": "4/28/2026, 10:00:40 AM"
+    },
+    {
+      "scraper": "scrapeDIGICUTGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-digict/",
+      "time": "4/28/2026, 10:00:40 AM"
+    },
+    {
+      "scraper": "scrapeEBGGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-ebg/",
+      "time": "4/28/2026, 10:00:40 AM"
+    },
+    {
+      "scraper": "scrapeETIGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-eti/",
+      "time": "4/28/2026, 10:00:48 AM"
+    },
+    {
+      "scraper": "scrapeFMLGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-fml/",
+      "time": "4/28/2026, 10:00:48 AM"
+    },
+    {
+      "scraper": "scrapeFABGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-fab/",
+      "time": "4/28/2026, 10:00:48 AM"
+    },
+    {
+      "scraper": "scrapeGGBLGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-ggbl/",
+      "time": "4/28/2026, 10:00:56 AM"
+    },
+    {
+      "scraper": "scrapeGLDGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-gld/",
+      "time": "4/28/2026, 10:00:56 AM"
+    },
+    {
+      "scraper": "scrapeGCBGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-gcb/",
+      "time": "4/28/2026, 10:00:57 AM"
+    },
+    {
+      "scraper": "scrapeGOILGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-goil/",
+      "time": "4/28/2026, 10:01:05 AM"
+    },
+    {
+      "scraper": "scrapeHORDSGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-hords/",
+      "time": "4/28/2026, 10:01:05 AM"
+    },
+    {
+      "scraper": "scrapeMACGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-mac/",
+      "time": "4/28/2026, 10:01:05 AM"
+    },
+    {
+      "scraper": "scrapeMMHGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-mmh/",
+      "time": "4/28/2026, 10:01:13 AM"
+    },
+    {
+      "scraper": "scrapeMTNGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-mtn/",
+      "time": "4/28/2026, 10:01:13 AM"
+    },
+    {
+      "scraper": "scrapeRBGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-rbgh/",
+      "time": "4/28/2026, 10:01:13 AM"
+    },
+    {
+      "scraper": "scrapeSCBPrefGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-scbpf/",
+      "time": "4/28/2026, 10:01:22 AM"
+    },
+    {
+      "scraper": "scrapeSAMBAFoods",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-samba/",
+      "time": "4/28/2026, 10:01:22 AM"
+    },
+    {
+      "scraper": "scrapeSCBGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-scb/",
+      "time": "4/28/2026, 10:01:22 AM"
+    },
+    {
+      "scraper": "scrapeSOGEGHGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-sogegh/",
+      "time": "4/28/2026, 10:01:30 AM"
+    },
+    {
+      "scraper": "scrapeTBLGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-tbl/",
+      "time": "4/28/2026, 10:01:30 AM"
+    },
+    {
+      "scraper": "scrapeSICGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-sic/",
+      "time": "4/28/2026, 10:01:30 AM"
+    },
+    {
+      "scraper": "scrapeTLWGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-tlw/",
+      "time": "4/28/2026, 10:01:38 AM"
+    },
+    {
+      "scraper": "scrapeTOTALGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-total/",
+      "time": "4/28/2026, 10:01:38 AM"
+    },
+    {
+      "scraper": "scrapeUNILGhana",
+      "status": "failed",
+      "error": "net::ERR_INTERNET_DISCONNECTED at https://africanfinancials.com/company/gh-unil/",
+      "time": "4/28/2026, 10:01:38 AM"
+    }
+  ]
+}

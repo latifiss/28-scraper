@@ -1,0 +1,322 @@
+{
+  "runId": 1777042800125,
+  "startTime": "4/24/2026, 3:00:00 PM",
+  "endTime": "4/24/2026, 3:13:25 PM",
+  "stats": {
+    "total": 38,
+    "successful": 20,
+    "failed": 18
+  },
+  "baseline": {
+    "date": "Fri Apr 24 2026",
+    "prices": {
+      "GLD": 497,
+      "GGBL": 15.3,
+      "GOIL": 7.85,
+      "HORDS": 0.1,
+      "MAC": 5.2,
+      "IIL": 0.05,
+      "MMH": 0.1,
+      "MTNGH": 6.6,
+      "RBGH": 5.58,
+      "SAMBA": 0.55,
+      "SCB": 71.38,
+      "SCBPREF": 0.9,
+      "SOGEGH": 6.29,
+      "SIC": 5.4,
+      "TBL": 1.2,
+      "TLW": 11.92,
+      "TOTAL": 34.55,
+      "UNIL": 28.46,
+      "AADS": 0.42,
+      "ACCESS": 30.65,
+      "AGA": 37,
+      "ADB": 5.06,
+      "ALLGH": 7.2,
+      "ASG": 8.89,
+      "CAL": 0.88,
+      "BOPP": 85,
+      "CLYD": 1.44,
+      "CMLT": 0.14,
+      "CPC": 0.12,
+      "DIGICUT": 0.09,
+      "DASPHARMA": 0.41,
+      "EGL": 11.08,
+      "EGH": 48.89,
+      "ETI": 2.21,
+      "FAB": 7.97,
+      "FML": 12.2,
+      "GCB": 41.9
+    }
+  },
+  "details": [
+    {
+      "symbol": "GGBL",
+      "status": "failed",
+      "error": "External API error: timeout of 20000ms exceeded",
+      "time": "4/24/2026, 3:00:20 PM"
+    },
+    {
+      "symbol": "GLD",
+      "status": "failed",
+      "error": "External API error: timeout of 20000ms exceeded",
+      "time": "4/24/2026, 3:00:20 PM"
+    },
+    {
+      "symbol": "GOIL",
+      "status": "failed",
+      "error": "timeout of 15000ms exceeded",
+      "time": "4/24/2026, 3:00:39 PM"
+    },
+    {
+      "symbol": "HORDS",
+      "status": "failed",
+      "error": "timeout of 15000ms exceeded",
+      "time": "4/24/2026, 3:00:39 PM"
+    },
+    {
+      "symbol": "IIL",
+      "status": "failed",
+      "error": "External API error: read ECONNRESET",
+      "time": "4/24/2026, 3:00:45 PM"
+    },
+    {
+      "symbol": "MAC",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:01:19 PM"
+    },
+    {
+      "symbol": "MTNGH",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:02:23 PM"
+    },
+    {
+      "symbol": "MMH",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:02:24 PM"
+    },
+    {
+      "symbol": "SAMBA",
+      "status": "failed",
+      "error": "External API error: read ECONNRESET",
+      "time": "4/24/2026, 3:02:39 PM"
+    },
+    {
+      "symbol": "RBGH",
+      "status": "failed",
+      "error": "External API error: timeout of 20000ms exceeded",
+      "time": "4/24/2026, 3:02:46 PM"
+    },
+    {
+      "symbol": "SCBPREF",
+      "status": "success",
+      "price": 0.9,
+      "dailyChange": 0,
+      "baselinePrice": 0.9,
+      "time": "4/24/2026, 3:03:21 PM"
+    },
+    {
+      "symbol": "SCB",
+      "status": "success",
+      "price": 71.38,
+      "dailyChange": 0,
+      "baselinePrice": 71.38,
+      "time": "4/24/2026, 3:03:25 PM"
+    },
+    {
+      "symbol": "SIC",
+      "status": "success",
+      "price": 5.4,
+      "dailyChange": 0,
+      "baselinePrice": 5.4,
+      "time": "4/24/2026, 3:04:18 PM"
+    },
+    {
+      "symbol": "SOGEGH",
+      "status": "success",
+      "price": 6.3,
+      "dailyChange": 0.159,
+      "baselinePrice": 6.29,
+      "time": "4/24/2026, 3:04:18 PM"
+    },
+    {
+      "symbol": "TLW",
+      "status": "success",
+      "price": 11.92,
+      "dailyChange": 0,
+      "baselinePrice": 11.92,
+      "time": "4/24/2026, 3:04:59 PM"
+    },
+    {
+      "symbol": "TBL",
+      "status": "success",
+      "price": 1.2,
+      "dailyChange": 0,
+      "baselinePrice": 1.2,
+      "time": "4/24/2026, 3:05:00 PM"
+    },
+    {
+      "symbol": "TOTAL",
+      "status": "failed",
+      "error": "timeout of 15000ms exceeded",
+      "time": "4/24/2026, 3:05:19 PM"
+    },
+    {
+      "symbol": "UNIL",
+      "status": "failed",
+      "error": "timeout of 15000ms exceeded",
+      "time": "4/24/2026, 3:05:19 PM"
+    },
+    {
+      "symbol": "AADS",
+      "status": "failed",
+      "error": "Request failed with status code 404",
+      "time": "4/24/2026, 3:05:44 PM"
+    },
+    {
+      "symbol": "ACCESS",
+      "status": "success",
+      "price": 30.65,
+      "dailyChange": 0,
+      "baselinePrice": 30.65,
+      "time": "4/24/2026, 3:06:03 PM"
+    },
+    {
+      "symbol": "AGA",
+      "status": "success",
+      "price": 37,
+      "dailyChange": 0,
+      "baselinePrice": 37,
+      "time": "4/24/2026, 3:06:27 PM"
+    },
+    {
+      "symbol": "ADB",
+      "status": "success",
+      "price": 5.06,
+      "dailyChange": 0,
+      "baselinePrice": 5.06,
+      "time": "4/24/2026, 3:06:37 PM"
+    },
+    {
+      "symbol": "ASG",
+      "status": "success",
+      "price": 8.89,
+      "dailyChange": 0,
+      "baselinePrice": 8.89,
+      "time": "4/24/2026, 3:07:21 PM"
+    },
+    {
+      "symbol": "ALLGH",
+      "status": "success",
+      "price": 7.2,
+      "dailyChange": 0,
+      "baselinePrice": 7.2,
+      "time": "4/24/2026, 3:07:26 PM"
+    },
+    {
+      "symbol": "BOPP",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:08:22 PM"
+    },
+    {
+      "symbol": "CAL",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:08:23 PM"
+    },
+    {
+      "symbol": "CALPREF",
+      "status": "failed",
+      "error": "External API error: Request failed with status code 404",
+      "time": "4/24/2026, 3:08:26 PM"
+    },
+    {
+      "symbol": "CLYD",
+      "status": "success",
+      "price": 1.44,
+      "dailyChange": 0,
+      "baselinePrice": 1.44,
+      "time": "4/24/2026, 3:09:41 PM"
+    },
+    {
+      "symbol": "CMLT",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:10:32 PM"
+    },
+    {
+      "symbol": "CPC",
+      "status": "failed",
+      "error": "timeout of 30000ms exceeded",
+      "time": "4/24/2026, 3:10:33 PM"
+    },
+    {
+      "symbol": "DASPHARMA",
+      "status": "success",
+      "price": 0.41,
+      "dailyChange": 0,
+      "baselinePrice": 0.41,
+      "time": "4/24/2026, 3:11:28 PM"
+    },
+    {
+      "symbol": "DIGICUT",
+      "status": "success",
+      "price": 0.09,
+      "dailyChange": 0,
+      "baselinePrice": 0.09,
+      "time": "4/24/2026, 3:11:29 PM"
+    },
+    {
+      "symbol": "EGL",
+      "status": "success",
+      "price": 11.08,
+      "dailyChange": 0,
+      "baselinePrice": 11.08,
+      "time": "4/24/2026, 3:12:04 PM"
+    },
+    {
+      "symbol": "EGH",
+      "status": "success",
+      "price": 48.89,
+      "dailyChange": 0,
+      "baselinePrice": 48.89,
+      "time": "4/24/2026, 3:12:05 PM"
+    },
+    {
+      "symbol": "FAB",
+      "status": "success",
+      "price": 7.97,
+      "dailyChange": 0,
+      "baselinePrice": 7.97,
+      "time": "4/24/2026, 3:12:48 PM"
+    },
+    {
+      "symbol": "ETI",
+      "status": "success",
+      "price": 2.21,
+      "dailyChange": 0,
+      "baselinePrice": 2.21,
+      "time": "4/24/2026, 3:12:51 PM"
+    },
+    {
+      "symbol": "FML",
+      "status": "success",
+      "price": 12.2,
+      "dailyChange": 0,
+      "baselinePrice": 12.2,
+      "time": "4/24/2026, 3:13:25 PM"
+    },
+    {
+      "symbol": "GCB",
+      "status": "success",
+      "price": 42.52,
+      "dailyChange": 1.4797,
+      "baselinePrice": 41.9,
+      "time": "4/24/2026, 3:13:25 PM"
+    }
+  ]
+}

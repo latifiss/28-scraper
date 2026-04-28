@@ -3,7 +3,8 @@ const axios = require('axios');
 const commoditySources = require('../scripts/commoditiesIndex');
 
 const MAX_WAIT_MS = 10 * 60 * 1000;
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:6060/api';
+const API_BASE_URL =
+  process.env.API_BASE_URL || 'https://api.28-markets.com/api';
 
 const getETHour = () => {
   const now = new Date();

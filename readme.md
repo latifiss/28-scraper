@@ -119,7 +119,6 @@ This makes it easy to:
 - **Puppeteer**
 - **Puppeteer Extra + Stealth Plugin**
 - **Node-Cron**
-- **Redis**
 - **MongoDB / Mongoose**
 
 ---
@@ -149,7 +148,7 @@ Create a `.env` file in the project root:
 
 ```env
 PORT=9000
-API_BASE_URL=http://localhost:6060/api
+API_BASE_URL=https://api.28-markets.com/api
 ```
 
 Add any additional credentials required by your scraper providers.

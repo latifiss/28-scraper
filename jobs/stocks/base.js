@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const cron = require('node-cron');
 
-const API_BASE_URL = 'http://localhost:6060/api';
+const API_BASE_URL = 'https://api.28-markets.com/api';
 const EXTERNAL_API_BASE = 'https://dev.kwayisi.org/apis/gse/live';
 const SYMBOLS_FILE = path.join(__dirname, '..', '..', 'seed', 'gse.json');
 const CONCURRENT_LIMIT = 2;

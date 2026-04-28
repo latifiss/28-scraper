@@ -1,0 +1,444 @@
+{
+  "runId": 1777377600416,
+  "startTime": "4/28/2026, 12:00:00 PM",
+  "endTime": "4/28/2026, 12:06:04 PM",
+  "stats": {
+    "total": 36,
+    "successful": 0,
+    "failed": 36
+  },
+  "details": [
+    {
+      "scraper": "scrapeAADGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:30 PM"
+    },
+    {
+      "scraper": "scrapeADBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:30 PM"
+    },
+    {
+      "scraper": "scrapeACCESSGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:30 PM"
+    },
+    {
+      "scraper": "scrapeACCESSGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:30 PM"
+    },
+    {
+      "scraper": "scrapeADBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:31 PM"
+    },
+    {
+      "scraper": "scrapeAADGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:31 PM"
+    },
+    {
+      "scraper": "scrapeASGGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:58 PM"
+    },
+    {
+      "scraper": "scrapeALLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:58 PM"
+    },
+    {
+      "scraper": "scrapeAGAGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:59 PM"
+    },
+    {
+      "scraper": "scrapeASGGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:59 PM"
+    },
+    {
+      "scraper": "scrapeALLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:59 PM"
+    },
+    {
+      "scraper": "scrapeAGAGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:00:59 PM"
+    },
+    {
+      "scraper": "scrapeBOPPGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeCLYDGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeCALGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeCALGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeCLYDGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeBOPPGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:29 PM"
+    },
+    {
+      "scraper": "scrapeCPCGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:57 PM"
+    },
+    {
+      "scraper": "scrapeCMLTGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:57 PM"
+    },
+    {
+      "scraper": "scrapeDASLPharmaGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:58 PM"
+    },
+    {
+      "scraper": "scrapeCPCGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:58 PM"
+    },
+    {
+      "scraper": "scrapeCMLTGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:58 PM"
+    },
+    {
+      "scraper": "scrapeDASLPharmaGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:01:58 PM"
+    },
+    {
+      "scraper": "scrapeEGLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:30 PM"
+    },
+    {
+      "scraper": "scrapeEBGGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:30 PM"
+    },
+    {
+      "scraper": "scrapeEGLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:30 PM"
+    },
+    {
+      "scraper": "scrapeDIGICUTGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:30 PM"
+    },
+    {
+      "scraper": "scrapeDIGICUTGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:31 PM"
+    },
+    {
+      "scraper": "scrapeEBGGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:02:31 PM"
+    },
+    {
+      "scraper": "scrapeFMLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:00 PM"
+    },
+    {
+      "scraper": "scrapeFABGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:00 PM"
+    },
+    {
+      "scraper": "scrapeETIGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:00 PM"
+    },
+    {
+      "scraper": "scrapeFMLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:00 PM"
+    },
+    {
+      "scraper": "scrapeFABGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:01 PM"
+    },
+    {
+      "scraper": "scrapeETIGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:01 PM"
+    },
+    {
+      "scraper": "scrapeGCBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:27 PM"
+    },
+    {
+      "scraper": "scrapeGGBLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:27 PM"
+    },
+    {
+      "scraper": "scrapeGLDGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:28 PM"
+    },
+    {
+      "scraper": "scrapeGGBLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:28 PM"
+    },
+    {
+      "scraper": "scrapeGLDGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:28 PM"
+    },
+    {
+      "scraper": "scrapeGCBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:28 PM"
+    },
+    {
+      "scraper": "scrapeGOILGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeMACGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeHORDSGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeMACGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeHORDSGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeGOILGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:03:57 PM"
+    },
+    {
+      "scraper": "scrapeRBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeMMHGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeRBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeMTNGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeMMHGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeMTNGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:30 PM"
+    },
+    {
+      "scraper": "scrapeSCBPrefGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:56 PM"
+    },
+    {
+      "scraper": "scrapeSAMBAFoods",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:57 PM"
+    },
+    {
+      "scraper": "scrapeSCBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:57 PM"
+    },
+    {
+      "scraper": "scrapeSAMBAFoods",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:57 PM"
+    },
+    {
+      "scraper": "scrapeSCBGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:57 PM"
+    },
+    {
+      "scraper": "scrapeSCBPrefGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:04:57 PM"
+    },
+    {
+      "scraper": "scrapeSICGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:30 PM"
+    },
+    {
+      "scraper": "scrapeSICGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:30 PM"
+    },
+    {
+      "scraper": "scrapeTBLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:30 PM"
+    },
+    {
+      "scraper": "scrapeTBLGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:30 PM"
+    },
+    {
+      "scraper": "scrapeSOGEGHGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:30 PM"
+    },
+    {
+      "scraper": "scrapeSOGEGHGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:05:31 PM"
+    },
+    {
+      "scraper": "scrapeUNILGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:01 PM"
+    },
+    {
+      "scraper": "scrapeTLWGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:02 PM"
+    },
+    {
+      "scraper": "scrapeTOTALGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:02 PM"
+    },
+    {
+      "scraper": "scrapeTOTALGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:04 PM"
+    },
+    {
+      "scraper": "scrapeUNILGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:04 PM"
+    },
+    {
+      "scraper": "scrapeTLWGhana",
+      "status": "failed",
+      "error": "Waiting for selector `.mod-tearsheet-overview_quote_bar` failed",
+      "time": "4/28/2026, 12:06:04 PM"
+    }
+  ]
+}
