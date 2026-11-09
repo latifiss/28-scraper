@@ -173,7 +173,7 @@ async function getPriceHistory(companyId) {
   }
 }
 
-async function processSymbol(symbolItem) {
+async function processSymbolRaw(symbolItem) {
   const symbol = symbolItem.symbol;
 
   try {
@@ -243,6 +243,20 @@ async function processSymbol(symbolItem) {
 
     return { symbol, success: false, error: error.message };
   }
+}
+
+const { track } = require('../../monitoring');
+
+async function processSymbol(symbolItem) {
+  const symbol = symbolItem.symbol;
+  return track({
+    id: 'gse-live-' + String(symbol).toLowerCase(),
+    name: 'GSE live ' + symbol,
+    category: 'gse-live',
+    source: 'Kwayisi',
+    expectedIntervalMs: 5 * 60 * 1000,
+    staleAfterMs: 30 * 60 * 1000,
+  }, () => processSymbolRaw(symbolItem));
 }
 
 async function scrapeAndUpdate() {
