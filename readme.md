@@ -266,3 +266,9 @@ ISC License
 Developed by **Latif Issaka**
 
 If you found this project useful, consider starring the repository.
+
+
+## Scraper health monitoring
+
+The service exposes a read-only monitoring API for individually instrumented forex, commodity, cryptocurrency, market-index, GSE fundamentals, GSE live-stock, and GoldBod scrapers. It records execution outcomes, durations, result counts, failures, consecutive failures, health scores, and recent run history. See [the monitoring guide](./monitoring/README.md) for endpoints, authentication, persistence, and health scoring.
+
