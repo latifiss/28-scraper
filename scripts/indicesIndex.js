@@ -11,21 +11,19 @@ const { scrapeShanghaiComposite } = require('./indexes/shanghai');
 const { scrapeDJIA } = require('./indexes/us-50');
 const { scrapeNASDAQ100 } = require('./indexes/us-100');
 const { scrapeSP500 } = require('./indexes/us-sp-500');
+const { monitored } = require('../monitoring');
 
 const indicesSources = [
-  scrapeCAC40,
-  scrapeDAX,
-  scrapeFTSE100,
-  scrapeGhanaStockIndex,
-  scrapeSensex,
-  scrapeNikkei225,
-  scrapeJSEIndex,
-  scrapeNSEASI,
-  scrapeNigerianStockIndex,
-  scrapeShanghaiComposite,
-  scrapeDJIA,
-  scrapeNASDAQ100,
-  scrapeSP500,
-];
+  scrapeCAC40, scrapeDAX, scrapeFTSE100, scrapeGhanaStockIndex,
+  scrapeSensex, scrapeNikkei225, scrapeJSEIndex, scrapeNSEASI,
+  scrapeNigerianStockIndex, scrapeShanghaiComposite, scrapeDJIA,
+  scrapeNASDAQ100, scrapeSP500,
+].map((fn) => monitored({
+  id: 'index-' + fn.name.replace(/^scrape/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+  name: fn.name.replace(/^scrape/, ''),
+  category: 'indices',
+  expectedIntervalMs: 5 * 60 * 1000,
+  staleAfterMs: 60 * 60 * 1000,
+}, fn));
 
 module.exports = indicesSources;
