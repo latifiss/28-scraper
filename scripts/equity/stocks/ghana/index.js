@@ -34,44 +34,24 @@ const { scrapeTBLGhana } = require('./TBL');
 const { scrapeTLWGhana } = require('./TLW');
 const { scrapeTOTALGhana } = require('./TOTAL');
 const { scrapeUNILGhana } = require('./UNIL');
+const { monitored } = require('../../../../monitoring');
 
 const gseSources = [
-  scrapeAADGhana,
-  scrapeACCESSGhana,
-  scrapeADBGhana,
-  scrapeAGAGhana,
-  scrapeALLGhana,
-  scrapeASGGhana,
-  scrapeBOPPGhana,
-  scrapeCALGhana,
-  scrapeCLYDGhana,
-  scrapeCMLTGhana,
-  scrapeCPCGhana,
-  scrapeDASLPharmaGhana,
-  scrapeDIGICUTGhana,
-  scrapeEBGGhana,
-  scrapeEGLGhana,
-  scrapeETIGhana,
-  scrapeFABGhana,
-  scrapeFMLGhana,
-  scrapeGCBGhana,
-  scrapeGGBLGhana,
-  scrapeGLDGhana,
-  scrapeGOILGhana,
-  scrapeHORDSGhana,
-  scrapeMACGhana,
-  scrapeMMHGhana,
-  scrapeMTNGhana,
-  scrapeRBGhana,
-  scrapeSAMBAFoods,
-  scrapeSCBGhana,
-  scrapeSCBPrefGhana,
-  scrapeSICGhana,
-  scrapeSOGEGHGhana,
-  scrapeTBLGhana,
-  scrapeTLWGhana,
-  scrapeTOTALGhana,
-  scrapeUNILGhana,
-];
+  scrapeAADGhana, scrapeACCESSGhana, scrapeADBGhana, scrapeAGAGhana,
+  scrapeALLGhana, scrapeASGGhana, scrapeBOPPGhana, scrapeCALGhana,
+  scrapeCLYDGhana, scrapeCMLTGhana, scrapeCPCGhana, scrapeDASLPharmaGhana,
+  scrapeDIGICUTGhana, scrapeEBGGhana, scrapeEGLGhana, scrapeETIGhana,
+  scrapeFABGhana, scrapeFMLGhana, scrapeGCBGhana, scrapeGGBLGhana,
+  scrapeGLDGhana, scrapeGOILGhana, scrapeHORDSGhana, scrapeMACGhana,
+  scrapeMMHGhana, scrapeMTNGhana, scrapeRBGhana, scrapeSAMBAFoods,
+  scrapeSCBGhana, scrapeSCBPrefGhana, scrapeSICGhana, scrapeSOGEGHGhana,
+  scrapeTBLGhana, scrapeTLWGhana, scrapeTOTALGhana, scrapeUNILGhana,
+].map((fn) => monitored({
+  id: 'gse-fundamentals-' + fn.name.replace(/^scrape/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+  name: fn.name.replace(/^scrape/, ''),
+  category: 'gse-fundamentals',
+  expectedIntervalMs: 24 * 60 * 60 * 1000,
+  staleAfterMs: 7 * 24 * 60 * 60 * 1000,
+}, fn));
 
 module.exports = gseSources;
